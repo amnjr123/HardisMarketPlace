@@ -1,16 +1,40 @@
 package GestionUtilisateur;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 @Entity
 public class Disponibilite implements Serializable {
-    @Column(nullable=true, unique=false)
-    private int test;
+
+    
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date dateDebut;
+    
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)    
+    private Date dateFin;
+
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public Date getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
+    }
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,5 +73,17 @@ public class Disponibilite implements Serializable {
     public String toString() {
         return "GestionUtilisateur.Disponibilite[ id=" + id + " ]";
     }
+    
+    @Column(nullable=false, unique=false)
+    private String test1;
+
+    public String getTest1() {
+        return test1;
+    }
+
+    public void setTest1(String test1) {
+        this.test1 = test1;
+    }
+
     
 }
