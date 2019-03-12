@@ -5,7 +5,9 @@
  */
 package FacadeUtilisateur;
 
+import GestionUtilisateur.Agence;
 import GestionUtilisateur.Entreprise;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +30,42 @@ public class EntrepriseFacade extends AbstractFacade<Entreprise> implements Entr
     public EntrepriseFacade() {
         super(Entreprise.class);
     }
+    @Override
+    public Entreprise creerEntreprise(String nom,String siret, String adresse, String mdp,Agence a){
+        Entreprise e = new Entreprise();
+        e.setNom(nom);
+        e.setSiret(siret);
+        e.setAdresseFacturation(adresse);
+        e.setMdpRattachement(mdp);
+        e.setAgence(a);
+        create(e);  
+        return e;
+    }
     
+    @Override
+    public Entreprise modifierEntreprise(Entreprise e, String nom,String siret, String adresse, String mdp,Agence a){
+        e.setNom(nom);
+        e.setSiret(siret);
+        e.setAdresseFacturation(adresse);
+        e.setMdpRattachement(mdp);
+        e.setAgence(a);
+        edit(e);
+        return e;
+    }
+    
+    @Override
+    public Entreprise supprimerEntreprise(Entreprise e){
+        remove(e);
+        return e;
+    }
+    
+    @Override
+    public Entreprise rechercheEntreprise(long id){
+        return find(id);
+    }
+    
+    @Override
+    public List<Entreprise> rechercheEntreprise(){
+        return findAll();
+    }
 }
