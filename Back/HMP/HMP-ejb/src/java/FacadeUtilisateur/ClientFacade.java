@@ -73,5 +73,9 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
         return findAll();
     }
     
-    
+    public Client affecterEntreprise(Client c, Entreprise e){
+        c.setEntreprise(e);
+        edit(c);
+        return c;
+    }
 }
