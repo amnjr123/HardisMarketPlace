@@ -3,12 +3,14 @@ package GestionUtilisateur;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 
 
 @Entity
-public class Client extends Utilisateur implements Serializable {
-
+@PrimaryKeyJoinColumn(name = "id")
+public class Client extends Utilisateur implements Serializable {    
+    
     @ManyToOne
     private Entreprise entreprise;
 

@@ -19,7 +19,29 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class CV implements Serializable {
+//Clés étrangères
+    @ManyToOne
+    private UtilisateurHardis utilisateurHardis;
 
+    public UtilisateurHardis getUtilisateurHardis() {
+        return utilisateurHardis;
+    }
+
+    public void setUtilisateurHardis(UtilisateurHardis utilisateurHardis) {
+        this.utilisateurHardis = utilisateurHardis;
+    }
+    
+    @ManyToOne
+    private Offre offre;
+
+    public Offre getOffre() {
+        return offre;
+    }
+
+    public void setOffre(Offre offre) {
+        this.offre = offre;
+    }
+//Attributs
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,18 +64,7 @@ public class CV implements Serializable {
     public void setCheminCV(String cheminCV) {
         this.cheminCV = cheminCV;
     }
-
-    @ManyToOne
-    private Offre offre;
-
-    public Offre getOffre() {
-        return offre;
-    }
-
-    public void setOffre(Offre offre) {
-        this.offre = offre;
-    }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;

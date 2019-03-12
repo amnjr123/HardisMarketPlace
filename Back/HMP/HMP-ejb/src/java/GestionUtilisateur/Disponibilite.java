@@ -12,8 +12,20 @@ import javax.persistence.Temporal;
 
 @Entity
 public class Disponibilite implements Serializable {
-
+//Clé étrangères
     
+    @ManyToOne
+    private UtilisateurHardis utilisateurHardis;
+
+    public UtilisateurHardis getUtilisateurHardis() {
+        return utilisateurHardis;
+    }
+
+    public void setUtilisateurHardis(UtilisateurHardis utilisateurHardis) {
+        this.utilisateurHardis = utilisateurHardis;
+    }
+
+//Attributs    
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dateDebut;
     
@@ -72,17 +84,6 @@ public class Disponibilite implements Serializable {
     @Override
     public String toString() {
         return "GestionUtilisateur.Disponibilite[ id=" + id + " ]";
-    }
-    
-    @Column(nullable=false, unique=false)
-    private String test1;
-
-    public String getTest1() {
-        return test1;
-    }
-
-    public void setTest1(String test1) {
-        this.test1 = test1;
     }
 
     

@@ -5,11 +5,10 @@
  */
 package GestionUtilisateur;
 
+import GestionCatalogue.Offre;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 /**
@@ -19,38 +18,14 @@ import javax.persistence.OneToMany;
 @Entity
 public class PorteurOffre extends UtilisateurHardis implements Serializable {
 
-    @ManyToOne
-    private CV cv;
+    @OneToOne(mappedBy = "po")
+    private Offre offre;
 
-    public CV getCv() {
-        return cv;
+    public Offre getOffre() {
+        return offre;
     }
 
-    public void setCv(CV cv) {
-        this.cv = cv;
+    public void setOffre(Offre offre) {
+        this.offre = offre;
     }
-    
-   @OneToMany
-    private List<Disponibilite> disponibilites;
-
-
-    public List<Disponibilite> getDisponibilites() {
-        return disponibilites;
-    }
-
-    public void setDisponibilites(List<Disponibilite> disponibilites) {
-        this.disponibilites = disponibilites;
-    }
-    
-    @ManyToOne
-    private Agence agence;
-    
-    public Agence getAgence() {
-        return agence;
-    }
-
-    public void setAgence(Agence agence) {
-        this.agence = agence;
-    }
-    
 }

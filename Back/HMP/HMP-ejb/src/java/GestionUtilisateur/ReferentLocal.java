@@ -7,10 +7,8 @@ package GestionUtilisateur;
 
 import GestionCatalogue.Offre;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -29,39 +27,5 @@ public class ReferentLocal extends UtilisateurHardis implements Serializable {
     public void setOffre(Offre offre) {
         this.offre = offre;
     }
-    
-   @OneToMany
-    private List<Disponibilite> disponibilites;
-
-
-    public List<Disponibilite> getDisponibilites() {
-        return disponibilites;
-    }
-
-    public void setDisponibilites(List<Disponibilite> disponibilites) {
-        this.disponibilites = disponibilites;
-    }
-    
-    @ManyToOne
-    private CV cv;
-
-    public CV getCv() {
-        return cv;
-    }
-
-    public void setCv(CV cv) {
-        this.cv = cv;
-    }
-    
-    @ManyToOne
-    private Agence agence;
-    
-    public Agence getAgence() {
-        return agence;
-    }
-
-    public void setAgence(Agence agence) {
-        this.agence = agence;
-    }
- 
+     
 }

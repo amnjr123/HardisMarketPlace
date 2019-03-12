@@ -19,40 +19,19 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Agence implements Serializable {
-
+//Clés étrangères
     @OneToMany(mappedBy = "agence")
-    private List<PorteurOffre> porteursOffres;
+    private List<UtilisateurHardis> utilisateurHardiss;
 
-    @OneToMany(mappedBy = "agence")
-    private List<ReferentLocal> referentsLocaux;
-
-    @OneToMany(mappedBy = "agence")
-    private List<Consultant> consultants;
-
-    public List<PorteurOffre> getPorteursOffres() {
-        return porteursOffres;
+    public List<UtilisateurHardis> getUtilisateurHardiss() {
+        return utilisateurHardiss;
     }
 
-    public void setPorteursOffres(List<PorteurOffre> porteursOffres) {
-        this.porteursOffres = porteursOffres;
+    public void setUtilisateurHardiss(List<UtilisateurHardis> utilisateurHardiss) {
+        this.utilisateurHardiss = utilisateurHardiss;
     }
 
-    public List<ReferentLocal> getReferentsLocaux() {
-        return referentsLocaux;
-    }
-
-    public void setReferentsLocaux(List<ReferentLocal> referentsLocaux) {
-        this.referentsLocaux = referentsLocaux;
-    }
-
-    public List<Consultant> getConsultants() {
-        return consultants;
-    }
-
-    public void setConsultants(List<Consultant> consultants) {
-        this.consultants = consultants;
-    }
-
+//Attributs
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

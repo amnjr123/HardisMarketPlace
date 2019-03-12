@@ -11,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author pedago
+ * @author 5151882
  */
 @Local
 public interface ReferentLocalFacadeLocal {

@@ -7,18 +7,23 @@ package GestionUtilisateur;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Temporal;
 
 /**
  *
  * @author 5151882
  */
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur implements Serializable {
+
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,6 +58,7 @@ public class Utilisateur implements Serializable {
         this.prenom = prenom;
     }
 
+    @Column(unique=true,nullable=false)
     private String mail;
 
     public String getMail() {
@@ -118,5 +124,7 @@ public class Utilisateur implements Serializable {
     public String toString() {
         return "Classes.Utilisateur[ id=" + id + " ]";
     }
+
+
     
 }

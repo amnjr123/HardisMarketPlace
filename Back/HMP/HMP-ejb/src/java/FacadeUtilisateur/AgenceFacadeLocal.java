@@ -11,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author pedago
+ * @author 5151882
  */
 @Local
 public interface AgenceFacadeLocal {
@@ -30,4 +30,9 @@ public interface AgenceFacadeLocal {
 
     int count();
     
+    Agence creerAgence(String localisation);
+    Agence modifierAgence(Agence a, String localisation);
+    Agence supprimerAgence(Agence a);
+    Agence rechercheAgence(long id);
+    List<Agence> rechercheAgence();
 }

@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author pedago
+ * @author 5151882
  */
 @Stateless
 public class ClientFacade extends AbstractFacade<Client> implements ClientFacadeLocal {
@@ -28,5 +28,11 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     public ClientFacade() {
         super(Client.class);
     }
+
+    @Override
+    public void creerClient(Client client) {
+        em.persist(client);
+    }
+    
     
 }

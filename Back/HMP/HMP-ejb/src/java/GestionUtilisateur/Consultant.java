@@ -10,8 +10,6 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 
 /**
@@ -34,38 +32,5 @@ public class Consultant extends UtilisateurHardis implements Serializable {
 
  
 
-    @OneToMany
-    private List<CV> listCV;
-
-    public List<CV> getListCV() {
-        return listCV;
-    }
-
-    public void setListCV(List<CV> listCV) {
-        this.listCV = listCV;
-    }   
-       
-    @OneToMany
-    private List<Disponibilite> disponibilites;
-
-
-    public List<Disponibilite> getDisponibilites() {
-        return disponibilites;
-    }
-
-    public void setDisponibilites(List<Disponibilite> disponibilites) {
-        this.disponibilites = disponibilites;
-    }
-
-    @ManyToOne
-    private Agence agence;
-    
-    public Agence getAgence() {
-        return agence;
-    }
-
-    public void setAgence(Agence agence) {
-        this.agence = agence;
-    }
      
 }

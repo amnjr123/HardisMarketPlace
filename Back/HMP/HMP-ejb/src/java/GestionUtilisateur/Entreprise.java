@@ -20,7 +20,7 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Entreprise implements Serializable {
-
+//Clé étrangères
     @OneToMany(mappedBy = "entreprise")
     private List<Interlocuteur> interlocuteurs;
 
@@ -53,8 +53,8 @@ public class Entreprise implements Serializable {
     public void setAgence(Agence agence) {
         this.agence = agence;
     }
-    
-    
+
+//Attributs    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

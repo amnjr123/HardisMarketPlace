@@ -11,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author pedago
+ * @author 5151882
  */
 @Local
 public interface ClientFacadeLocal {
@@ -29,5 +29,7 @@ public interface ClientFacadeLocal {
     List<Client> findRange(int[] range);
 
     int count();
+
+    void creerClient(Client client);
     
 }

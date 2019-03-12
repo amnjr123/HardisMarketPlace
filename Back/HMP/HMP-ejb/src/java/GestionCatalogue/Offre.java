@@ -7,6 +7,7 @@ package GestionCatalogue;
 
 import GestionUtilisateur.Consultant;
 import GestionUtilisateur.PorteurOffre;
+import GestionUtilisateur.ReferentLocal;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -22,9 +24,28 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Offre implements Serializable {
+//Clés étrangères
+    @OneToMany(mappedBy = "offre")
+    private List<ReferentLocal> referentstLocaux;
 
+    public List<ReferentLocal> getReferentstLocaux() {
+        return referentstLocaux;
+    }
+
+    public void setReferentstLocaux(List<ReferentLocal> referentstLocaux) {
+        this.referentstLocaux = referentstLocaux;
+    }
+    
     @ManyToMany(mappedBy = "offres")
     private List<Consultant> consultants;
+
+    public List<Consultant> getConsultants() {
+        return consultants;
+    }
+
+    public void setConsultants(List<Consultant> consultants) {
+        this.consultants = consultants;
+    }
 
     @OneToOne
     private PorteurOffre po;
@@ -37,6 +58,7 @@ public class Offre implements Serializable {
         this.po = po;
     }
     
+//Attributs
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

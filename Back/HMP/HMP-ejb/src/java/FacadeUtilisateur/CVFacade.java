@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author pedago
+ * @author 5151882
  */
 @Stateless
 public class CVFacade extends AbstractFacade<CV> implements CVFacadeLocal {
@@ -28,5 +28,31 @@ public class CVFacade extends AbstractFacade<CV> implements CVFacadeLocal {
     public CVFacade() {
         super(CV.class);
     }
+    /*
+    public CV creerCV(String localisation){
+        CV a = new CV();
+        a.setLocalisation(localisation);
+        create(a);  
+        return a;
+    }
+    
+    public CV modifierAgence(Agence a, String localisation){
+        a.setLocalisation(localisation);
+        edit(a);
+        return a;
+    }
+    
+    public Agence supprimerAgence(Agence a){
+        remove(a);
+        return a;
+    }
+    
+    public Agence rechercheAgence(long id){
+        return find(id);
+    }
+    
+    public List<Agence> rechercheAgence(){
+        return findAll();
+    }*/
     
 }

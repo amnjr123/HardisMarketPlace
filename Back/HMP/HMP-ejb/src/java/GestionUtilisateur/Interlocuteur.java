@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Interlocuteur implements Serializable {
-    
+//Clés étrangères    
     @ManyToOne
     private Entreprise entreprise;
 
@@ -29,7 +29,8 @@ public class Interlocuteur implements Serializable {
     public void setEntreprise(Entreprise entreprise) {
         this.entreprise = entreprise;
     }
-    
+
+//Attributs    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

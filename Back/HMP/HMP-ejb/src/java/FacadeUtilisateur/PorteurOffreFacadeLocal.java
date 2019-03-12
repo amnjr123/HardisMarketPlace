@@ -11,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author pedago
+ * @author 5151882
  */
 @Local
 public interface PorteurOffreFacadeLocal {
@@ -29,5 +29,7 @@ public interface PorteurOffreFacadeLocal {
     List<PorteurOffre> findRange(int[] range);
 
     int count();
+
+    void creerPO();
     
 }
