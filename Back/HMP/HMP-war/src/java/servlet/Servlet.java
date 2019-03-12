@@ -30,7 +30,7 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        sessionClient.creerPO();
+       // sessionClient.creerPO();
         
         
         RequestDispatcher rd = getServletContext().getRequestDispatcher(jspClient);
