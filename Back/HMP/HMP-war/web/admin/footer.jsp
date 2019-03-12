@@ -8,11 +8,16 @@
 
     <script src="./../js/bootstrap.min.js"></script>
 
-    <!-- Icons -->
-  <!--  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+        <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
       feather.replace()
-    </script>-->
+    </script>
+    <script>
+    $('#exampleModal').on('shown.bs.modal', function () {
+         $('#siret').trigger('focus')
+})
+</script>
 
   </body>
 </html>

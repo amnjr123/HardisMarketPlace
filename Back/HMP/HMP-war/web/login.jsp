@@ -3,7 +3,7 @@
 </head>
 <body class="text-center">
     <form class="form-signin" method="post" action="${pageContext.request.contextPath}/admin/indexAdmin.jsp">
-        <img class="mb-4" src="./assets/baseline-person-24px.svg" alt="" width="72" height="72">
+        <img class="mb-4" src="${pageContext.request.contextPath}/assets/baseline-person-24px.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Connectez vous</h1>
         <label for="inputEmail" class="sr-only">Email</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Adresse mail" required autofocus>
