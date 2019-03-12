@@ -5,6 +5,7 @@
  */
 package FacadeUtilisateur;
 
+import Enum.ProfilTechnique;
 import GestionUtilisateur.Consultant;
 import java.util.List;
 import javax.ejb.Local;
@@ -29,5 +30,17 @@ public interface ConsultantFacadeLocal {
     List<Consultant> findRange(int[] range);
 
     int count();
+
+    Consultant modifierConsultant(Consultant c, String mail, String tel, String mdp, Boolean actifInactif);
+
+    Consultant supprimerConsultant(Consultant c);
+
+    Consultant rechercheConsultant(long id);
+
+    List<Consultant> rechercheConsultant();
+
+    Consultant modifierConsultant(Consultant c, String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation);
+
+    Consultant creerConsultant(String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation);
     
 }

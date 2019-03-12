@@ -30,6 +30,8 @@ public class AgenceFacade extends AbstractFacade<Agence> implements AgenceFacade
         super(Agence.class);
     }
     
+    
+    @Override
     public Agence creerAgence(String localisation){
         Agence a = new Agence();
         a.setLocalisation(localisation);
@@ -37,21 +39,25 @@ public class AgenceFacade extends AbstractFacade<Agence> implements AgenceFacade
         return a;
     }
     
+    @Override
     public Agence modifierAgence(Agence a, String localisation){
         a.setLocalisation(localisation);
         edit(a);
         return a;
     }
     
+    @Override
     public Agence supprimerAgence(Agence a){
         remove(a);
         return a;
     }
     
+    @Override
     public Agence rechercheAgence(long id){
         return find(id);
     }
     
+    @Override
     public List<Agence> rechercheAgence(){
         return findAll();
     }

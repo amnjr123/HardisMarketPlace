@@ -5,7 +5,9 @@
  */
 package FacadeUtilisateur;
 
+import GestionUtilisateur.Entreprise;
 import GestionUtilisateur.Interlocuteur;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +31,43 @@ public class InterlocuteurFacade extends AbstractFacade<Interlocuteur> implement
         super(Interlocuteur.class);
     }
     
+    @Override
+    public Interlocuteur creerInterlocuteur(String nom,String prenom, String mail,String telephone, String fonction, Entreprise entreprise){
+        Interlocuteur i = new Interlocuteur();
+        i.setNom(nom);
+        i.setPrenom(prenom);
+        i.setMail(mail);
+        i.setTelephone(telephone);
+        i.setFonction(fonction);
+        i.setEntreprise(entreprise);
+        create(i);  
+        return i;
+    }
+    
+    @Override
+    public Interlocuteur modifierInterlocuteur(Interlocuteur i, String nom,String prenom, String mail,String telephone, String fonction){
+        i.setNom(nom);
+        i.setPrenom(prenom);
+        i.setMail(mail);
+        i.setTelephone(telephone);
+        i.setFonction(fonction);
+        edit(i);
+        return i;
+    }
+    
+    @Override
+    public Interlocuteur supprimerInterlocuteur(Interlocuteur i){
+        remove(i);
+        return i;
+    }
+    
+    @Override
+    public Interlocuteur rechercheInterlocuteur(long id){
+        return find(id);
+    }
+    
+    @Override
+    public List<Interlocuteur> rechercheInterlocuteur(){
+        return findAll();
+    }
 }

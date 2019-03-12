@@ -6,13 +6,15 @@
 package FacadeUtilisateur;
 
 import GestionUtilisateur.Client;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author 5151882
+ * @author 
  */
 @Stateless
 public class ClientFacade extends AbstractFacade<Client> implements ClientFacadeLocal {
@@ -30,8 +32,43 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     }
 
     @Override
-    public void creerClient(Client client) {
-        em.persist(client);
+    public Client creerClient(String nom,String prenom,String mail,String tel,String mdp){
+        Client c = new Client();
+        c.setNom(nom);
+        c.setPrenom(prenom);
+        c.setMail(mail);
+        c.setTelephone(tel);
+        c.setMdp(mdp);
+        c.setDateCreationCompte(new Date());
+        create(c);  
+        return c;
+    }
+    
+    @Override
+    public Client modifierClient(Client c, String nom,String prenom,String mail,String tel,String mdp){
+        c.setNom(nom);
+        c.setPrenom(prenom);
+        c.setMail(mail);
+        c.setTelephone(tel);
+        c.setMdp(mdp);
+        edit(c);
+        return c;
+    }
+    
+    @Override
+    public Client supprimerClient(Client c){
+        remove(c);
+        return c;
+    }
+    
+    @Override
+    public Client rechercheClient(long id){
+        return find(id);
+    }
+    
+    @Override
+    public List<Client> rechercheClient(){
+        return findAll();
     }
     
     

@@ -30,6 +30,14 @@ public interface ClientFacadeLocal {
 
     int count();
 
-    void creerClient(Client client);
+    Client creerClient(String nom, String prenom, String mail, String tel, String mdp);
+
+    Client modifierClient(Client c, String nom, String prenom, String mail, String tel, String mdp);
+
+    Client supprimerClient(Client c);
+
+    Client rechercheClient(long id);
+
+    List<Client> rechercheClient();
     
 }

@@ -5,7 +5,9 @@
  */
 package FacadeUtilisateur;
 
+import GestionUtilisateur.Consultant;
 import GestionUtilisateur.Disponibilite;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +31,15 @@ public interface DisponibiliteFacadeLocal {
     List<Disponibilite> findRange(int[] range);
 
     int count();
+
+    Disponibilite creerDisponibilite(Date dateDebut, Date dateFin, Consultant c);
+
+    Disponibilite modifierDisponibilite(Disponibilite d, Date dateDebut, Date dateFin);
+
+    Disponibilite supprimerDisponibilite(Disponibilite d);
+
+    Disponibilite rechercheDisponibilite(long id);
+
+    List<Disponibilite> rechercheDisponibilite();
     
 }

@@ -31,7 +31,7 @@ public class SessionClient implements SessionClientLocal {
         c.setMdp("123");
         c.setTelephone("0600000000");
         c.setDateCreationCompte(new Date());
-        clientFacade.creerClient(c);
+        //clientFacade.creerClient(c);
     }
 
     @Override

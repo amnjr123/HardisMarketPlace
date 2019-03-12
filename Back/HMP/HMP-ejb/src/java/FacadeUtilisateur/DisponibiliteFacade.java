@@ -5,7 +5,10 @@
  */
 package FacadeUtilisateur;
 
+import GestionUtilisateur.Consultant;
 import GestionUtilisateur.Disponibilite;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +30,40 @@ public class DisponibiliteFacade extends AbstractFacade<Disponibilite> implement
 
     public DisponibiliteFacade() {
         super(Disponibilite.class);
+    }
+    
+    @Override
+    public Disponibilite creerDisponibilite(Date dateDebut, Date dateFin,Consultant c){
+        Disponibilite d = new Disponibilite();
+        d.setDateDebut(dateDebut);
+        d.setDateFin(dateFin);
+        d.setUtilisateurHardis(c);
+        create(d);  
+        return d;
+    }
+    
+    @Override
+    public Disponibilite modifierDisponibilite(Disponibilite d, Date dateDebut, Date dateFin){
+        d.setDateDebut(dateDebut);
+        d.setDateFin(dateFin);
+        edit(d);
+        return d;
+    }
+    
+    @Override
+    public Disponibilite supprimerDisponibilite(Disponibilite d){
+        remove(d);
+        return d;
+    }
+    
+    @Override
+    public Disponibilite rechercheDisponibilite(long id){
+        return find(id);
+    }
+    
+    @Override
+    public List<Disponibilite> rechercheDisponibilite(){
+        return findAll();
     }
     
 }

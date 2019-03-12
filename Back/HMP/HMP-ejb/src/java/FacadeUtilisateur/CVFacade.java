@@ -30,29 +30,34 @@ public class CVFacade extends AbstractFacade<CV> implements CVFacadeLocal {
         super(CV.class);
     }
     
-    public CV creerCV(String localisation){
-        CV a = new CV();
-       // a.setLocalisation(localisation);
-        create(a);  
-        return a;
+    @Override
+    public CV creerCV(String chemin){
+        CV cv = new CV();
+        cv.setCheminCV(chemin);
+        create(cv);  
+        return cv;
     }
     
-    public CV modifierAgence(CV a, String localisation){
-     //   a.setLocalisation(localisation);
-        edit(a);
-        return a;
+    @Override
+    public CV modifierCV(CV cv, String chemin){
+        cv.setCheminCV(chemin);
+        edit(cv);
+        return cv;
     }
     
-    public CV supprimerAgence(CV a){
-        remove(a);
-        return a;
+    @Override
+    public CV supprimerCV(CV cv){
+        remove(cv);
+        return cv;
     }
     
-    public CV rechercheAgence(long id){
+    @Override
+    public CV rechercheCV(long id){
         return find(id);
     }
     
-    public List<CV> rechercheAgence(){
+    @Override
+    public List<CV> rechercheCV(){
         return findAll();
     }
     

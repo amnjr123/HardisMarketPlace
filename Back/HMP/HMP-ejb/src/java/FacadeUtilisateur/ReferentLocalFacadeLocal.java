@@ -5,6 +5,8 @@
  */
 package FacadeUtilisateur;
 
+import Enum.ProfilTechnique;
+import GestionCatalogue.Offre;
 import GestionUtilisateur.ReferentLocal;
 import java.util.List;
 import javax.ejb.Local;
@@ -29,5 +31,17 @@ public interface ReferentLocalFacadeLocal {
     List<ReferentLocal> findRange(int[] range);
 
     int count();
+
+    ReferentLocal modifierReferentLocal(ReferentLocal rl, String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Offre offre);
+
+    ReferentLocal modifierReferentLocal(ReferentLocal rl, String mail, String tel, String mdp, Boolean actifInactif);
+
+    ReferentLocal supprimerReferentLocal(ReferentLocal rl);
+
+    ReferentLocal rechercheReferentLocal(long id);
+
+    List<ReferentLocal> rechercheReferentLocal();
+
+    ReferentLocal creerReferentLocal(String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Offre offre);
     
 }

@@ -5,7 +5,10 @@
  */
 package FacadeUtilisateur;
 
+import Enum.ProfilTechnique;
 import GestionUtilisateur.Consultant;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +32,60 @@ public class ConsultantFacade extends AbstractFacade<Consultant> implements Cons
         super(Consultant.class);
     }
     
+    @Override
+    public Consultant creerConsultant(String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation){
+        Consultant c = new Consultant();
+        c.setNom(nom);
+        c.setPrenom(prenom);
+        c.setMail(mail);
+        c.setTelephone(tel);
+        c.setMdp(mdp);
+        c.setProfilTechnique(profil);
+        c.setActifInactif(actifInactif);
+        c.setPlafondDelegation(plafondDelegation);
+        c.setDateCreationCompte(new Date());
+        create(c);  
+        return c;
+    }
+    
+    
+    @Override //Méthode pour Administrateur
+    public Consultant modifierConsultant(Consultant c, String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation){
+        c.setNom(nom);
+        c.setPrenom(prenom);
+        c.setMail(mail);
+        c.setTelephone(tel);
+        c.setMdp(mdp);
+        c.setProfilTechnique(profil);
+        c.setActifInactif(actifInactif);
+        c.setPlafondDelegation(plafondDelegation);
+        edit(c);
+        return c;
+    }
+    
+    @Override //Méthode pour Consultant Gestionnaire ou Visualisation
+    public Consultant modifierConsultant(Consultant c, String mail,String tel,String mdp,Boolean actifInactif){
+        c.setMail(mail);
+        c.setTelephone(tel);
+        c.setMdp(mdp);
+        c.setActifInactif(actifInactif);
+        edit(c);
+        return c;
+    }
+    
+    @Override
+    public Consultant supprimerConsultant(Consultant c){
+        remove(c);
+        return c;
+    }
+    
+    @Override
+    public Consultant rechercheConsultant(long id){
+        return find(id);
+    }
+    
+    @Override
+    public List<Consultant> rechercheConsultant(){
+        return findAll();
+    }
 }

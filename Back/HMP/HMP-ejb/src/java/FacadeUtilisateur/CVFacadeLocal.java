@@ -29,5 +29,15 @@ public interface CVFacadeLocal {
     List<CV> findRange(int[] range);
 
     int count();
+
+    List<CV> rechercheCV();
+
+    CV creerCV(String chemin);
+
+    CV modifierCV(CV cv, String chemin);
+
+    CV supprimerCV(CV cv);
+
+    CV rechercheCV(long id);
     
 }

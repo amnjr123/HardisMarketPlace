@@ -5,8 +5,11 @@
  */
 package FacadeUtilisateur;
 
+import Enum.ProfilTechnique;
+import GestionCatalogue.Offre;
 import GestionUtilisateur.PorteurOffre;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,15 +34,62 @@ public class PorteurOffreFacade extends AbstractFacade<PorteurOffre> implements 
     }
 
     @Override
-    public void creerPO() {
-      PorteurOffre c = new PorteurOffre();
-        c.setNom("Madranges");
-        c.setPrenom("Manon");
-        c.setMail("anas.m@gmail.com");
-        c.setMdp("123");
-        c.setTelephone("0600000000");
-        c.setDateCreationCompte(new Date());
-        em.persist(c);
+    public PorteurOffre creerPorteurOffre(String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation,Offre offre){
+        PorteurOffre po = new PorteurOffre();
+        po.setNom(nom);
+        po.setPrenom(prenom);
+        po.setMail(mail);
+        po.setTelephone(tel);
+        po.setMdp(mdp);
+        po.setProfilTechnique(profil);
+        po.setActifInactif(actifInactif);
+        po.setPlafondDelegation(plafondDelegation);
+        po.setDateCreationCompte(new Date());
+        po.setOffre(offre);
+        create(po);  
+        return po;
+    }
+    
+    
+    @Override //Méthode pour Administrateur
+    public PorteurOffre modifierPorteurOffre(PorteurOffre po, String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation,Offre offre){
+        po.setNom(nom);
+        po.setPrenom(prenom);
+        po.setMail(mail);
+        po.setTelephone(tel);
+        po.setMdp(mdp);
+        po.setProfilTechnique(profil);
+        po.setActifInactif(actifInactif);
+        po.setPlafondDelegation(plafondDelegation);
+        po.setOffre(offre);
+        edit(po);
+        return po;
+    }
+    
+    @Override //Méthode pour Porteur d'Offre Gestionnaire ou Visualisation
+    public PorteurOffre modifierPorteurOffre(PorteurOffre po, String mail,String tel,String mdp,Boolean actifInactif){
+        po.setMail(mail);
+        po.setTelephone(tel);
+        po.setMdp(mdp);
+        po.setActifInactif(actifInactif);
+        edit(po);
+        return po;
+    }
+    
+    @Override
+    public PorteurOffre supprimerConsultant(PorteurOffre c){
+        remove(c);
+        return c;
+    }
+    
+    @Override
+    public PorteurOffre recherchePorteurOffre(long id){
+        return find(id);
+    }
+    
+    @Override
+    public List<PorteurOffre> recherchePorteurOffre(){
+        return findAll();
     }
     
     

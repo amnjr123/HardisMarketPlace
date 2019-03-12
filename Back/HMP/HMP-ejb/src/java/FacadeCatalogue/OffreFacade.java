@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FacadeUtilisateur;
+package FacadeCatalogue;
 
-import GestionUtilisateur.Utilisateur;
+import FacadeUtilisateur.AbstractFacade;
+import GestionCatalogue.Offre;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * @author 5151882
  */
 @Stateless
-public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements UtilisateurFacadeLocal {
+public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLocal {
 
     @PersistenceContext(unitName = "HMP-ejbPU")
     private EntityManager em;
@@ -25,12 +26,9 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
         return em;
     }
 
-    public UtilisateurFacade() {
-        super(Utilisateur.class);
+    public OffreFacade() {
+        super(Offre.class);
     }
     
-    public Utilisateur authentification(String mail, String mdp){
-        Utilisateur u = null;
-        return u;
-    }
+    
 }

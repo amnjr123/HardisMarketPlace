@@ -5,6 +5,7 @@
  */
 package FacadeUtilisateur;
 
+import GestionUtilisateur.Agence;
 import GestionUtilisateur.Entreprise;
 import java.util.List;
 import javax.ejb.Local;
@@ -29,5 +30,15 @@ public interface EntrepriseFacadeLocal {
     List<Entreprise> findRange(int[] range);
 
     int count();
+
+    Entreprise modifierEntreprise(Entreprise e, String nom, String siret, String adresse, String mdp, Agence a);
+
+    Entreprise supprimerEntreprise(Entreprise e);
+
+    Entreprise rechercheEntreprise(long id);
+
+    List<Entreprise> rechercheEntreprise();
+
+    Entreprise creerEntreprise(String nom, String siret, String adresse, String mdp, Agence a);
     
 }
