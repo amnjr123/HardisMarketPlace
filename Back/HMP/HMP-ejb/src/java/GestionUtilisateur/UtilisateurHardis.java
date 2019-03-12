@@ -12,14 +12,14 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class UtilisateurHardis extends Utilisateur implements Serializable {
 
-    private ProfilTechnique profilTechnique;
+    private ProfilTechnique string;
 
     public ProfilTechnique getString() {
-        return profilTechnique;
+        return string;
     }
 
-    public void setString(ProfilTechnique profilTechnique) {
-        this.profilTechnique = profilTechnique;
+    public void setString(ProfilTechnique string) {
+        this.string = string;
     }
 
     private Boolean actifInactif;
