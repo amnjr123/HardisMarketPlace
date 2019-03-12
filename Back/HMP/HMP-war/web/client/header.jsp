@@ -35,7 +35,7 @@
               <li class="nav-item">
                 <a class="nav-link active" href="indexClient.jsp">
                   <span data-feather="monitor"></span>
-                  Tableau de bord <span class="sr-only">(current)</span>
+                  Tableau de bord
                 </a>
               </li>
               <li class="nav-item">
