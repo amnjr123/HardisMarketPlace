@@ -6,6 +6,7 @@
 package FacadeUtilisateur;
 
 import Enum.ProfilTechnique;
+import GestionUtilisateur.Agence;
 import GestionUtilisateur.Consultant;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +34,7 @@ public class ConsultantFacade extends AbstractFacade<Consultant> implements Cons
     }
     
     @Override
-    public Consultant creerConsultant(String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation){
+    public Consultant creerConsultant(String nom, String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation, Agence agence){
         Consultant c = new Consultant();
         c.setNom(nom);
         c.setPrenom(prenom);
@@ -44,6 +45,7 @@ public class ConsultantFacade extends AbstractFacade<Consultant> implements Cons
         c.setActifInactif(actifInactif);
         c.setPlafondDelegation(plafondDelegation);
         c.setDateCreationCompte(new Date());
+        c.setAgence(agence);
         create(c);  
         return c;
     }

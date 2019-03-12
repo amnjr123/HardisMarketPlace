@@ -6,6 +6,7 @@
 package FacadeUtilisateur;
 
 import GestionUtilisateur.Client;
+import GestionUtilisateur.Entreprise;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -30,8 +31,6 @@ public interface ClientFacadeLocal {
 
     int count();
 
-    Client creerClient(String nom, String prenom, String mail, String tel, String mdp);
-
     Client modifierClient(Client c, String nom, String prenom, String mail, String tel, String mdp);
 
     Client supprimerClient(Client c);
@@ -39,5 +38,7 @@ public interface ClientFacadeLocal {
     Client rechercheClient(long id);
 
     List<Client> rechercheClient();
+
+    Client creerClient(String nom, String prenom, String mail, String tel, String mdp, Entreprise e);
     
 }

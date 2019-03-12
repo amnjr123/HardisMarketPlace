@@ -7,6 +7,7 @@ package FacadeUtilisateur;
 
 import Enum.ProfilTechnique;
 import GestionCatalogue.Offre;
+import GestionUtilisateur.Agence;
 import GestionUtilisateur.PorteurOffre;
 import java.util.List;
 import javax.ejb.Local;
@@ -32,8 +33,6 @@ public interface PorteurOffreFacadeLocal {
 
     int count();
 
-    PorteurOffre modifierPorteurOffre(PorteurOffre po, String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Offre offre);
-
     PorteurOffre modifierPorteurOffre(PorteurOffre po, String mail, String tel, String mdp, Boolean actifInactif);
 
     PorteurOffre supprimerConsultant(PorteurOffre c);
@@ -42,6 +41,8 @@ public interface PorteurOffreFacadeLocal {
 
     List<PorteurOffre> recherchePorteurOffre();
 
-    PorteurOffre creerPorteurOffre(String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Offre offre);
+    PorteurOffre modifierPorteurOffre(PorteurOffre po, String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, Offre offre, Agence agence);
+
+    PorteurOffre creerPorteurOffre(String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, Offre offre, Agence agence);
     
 }

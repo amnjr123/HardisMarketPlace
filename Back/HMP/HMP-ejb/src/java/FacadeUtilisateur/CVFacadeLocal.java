@@ -5,7 +5,9 @@
  */
 package FacadeUtilisateur;
 
+import GestionCatalogue.Offre;
 import GestionUtilisateur.CV;
+import GestionUtilisateur.UtilisateurHardis;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -32,12 +34,12 @@ public interface CVFacadeLocal {
 
     List<CV> rechercheCV();
 
-    CV creerCV(String chemin);
-
     CV modifierCV(CV cv, String chemin);
 
     CV supprimerCV(CV cv);
 
     CV rechercheCV(long id);
+
+    CV creerCV(String chemin, UtilisateurHardis uh, Offre o);
     
 }

@@ -5,7 +5,9 @@
  */
 package FacadeUtilisateur;
 
+import GestionCatalogue.Offre;
 import GestionUtilisateur.CV;
+import GestionUtilisateur.UtilisateurHardis;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -31,9 +33,11 @@ public class CVFacade extends AbstractFacade<CV> implements CVFacadeLocal {
     }
     
     @Override
-    public CV creerCV(String chemin){
+    public CV creerCV(String chemin, UtilisateurHardis uh, Offre o){
         CV cv = new CV();
         cv.setCheminCV(chemin);
+        cv.setUtilisateurHardis(uh);
+        cv.setOffre(o);
         create(cv);  
         return cv;
     }

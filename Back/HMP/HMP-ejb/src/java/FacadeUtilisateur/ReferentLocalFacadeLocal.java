@@ -7,6 +7,7 @@ package FacadeUtilisateur;
 
 import Enum.ProfilTechnique;
 import GestionCatalogue.Offre;
+import GestionUtilisateur.Agence;
 import GestionUtilisateur.ReferentLocal;
 import java.util.List;
 import javax.ejb.Local;
@@ -32,8 +33,6 @@ public interface ReferentLocalFacadeLocal {
 
     int count();
 
-    ReferentLocal modifierReferentLocal(ReferentLocal rl, String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Offre offre);
-
     ReferentLocal modifierReferentLocal(ReferentLocal rl, String mail, String tel, String mdp, Boolean actifInactif);
 
     ReferentLocal supprimerReferentLocal(ReferentLocal rl);
@@ -42,6 +41,8 @@ public interface ReferentLocalFacadeLocal {
 
     List<ReferentLocal> rechercheReferentLocal();
 
-    ReferentLocal creerReferentLocal(String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Offre offre);
+    ReferentLocal modifierReferentLocal(ReferentLocal rl, String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Offre offre, Agence agence);
+
+    ReferentLocal creerReferentLocal(String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Offre offre, Agence agence);
     
 }

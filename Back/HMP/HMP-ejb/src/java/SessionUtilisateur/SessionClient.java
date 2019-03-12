@@ -36,7 +36,7 @@ public class SessionClient implements SessionClientLocal {
 
     @Override
     public void creerPO() {
-        porteurOffreFacade.creerPO();
+        //porteurOffreFacade.creerPO();
     }
     
     

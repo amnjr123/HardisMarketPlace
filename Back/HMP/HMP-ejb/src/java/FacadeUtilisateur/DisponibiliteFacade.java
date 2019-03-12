@@ -5,8 +5,8 @@
  */
 package FacadeUtilisateur;
 
-import GestionUtilisateur.Consultant;
 import GestionUtilisateur.Disponibilite;
+import GestionUtilisateur.UtilisateurHardis;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -33,11 +33,11 @@ public class DisponibiliteFacade extends AbstractFacade<Disponibilite> implement
     }
     
     @Override
-    public Disponibilite creerDisponibilite(Date dateDebut, Date dateFin,Consultant c){
+    public Disponibilite creerDisponibilite(Date dateDebut, Date dateFin,UtilisateurHardis uh){
         Disponibilite d = new Disponibilite();
         d.setDateDebut(dateDebut);
         d.setDateFin(dateFin);
-        d.setUtilisateurHardis(c);
+        d.setUtilisateurHardis(uh);
         create(d);  
         return d;
     }

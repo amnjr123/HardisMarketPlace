@@ -80,15 +80,5 @@ public class UtilisateurHardis extends Utilisateur implements Serializable {
     public void setActifInactif(Boolean actifInactif) {
         this.actifInactif = actifInactif;
     }
-
-    private Float plafondDelegation;
-
-    public Float getPlafondDelegation() {
-        return plafondDelegation;
-    }
-
-    public void setPlafondDelegation(Float plafondDelegation) {
-        this.plafondDelegation = plafondDelegation;
-    }
     
 }

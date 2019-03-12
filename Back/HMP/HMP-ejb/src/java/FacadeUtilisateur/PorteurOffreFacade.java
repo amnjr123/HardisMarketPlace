@@ -7,6 +7,7 @@ package FacadeUtilisateur;
 
 import Enum.ProfilTechnique;
 import GestionCatalogue.Offre;
+import GestionUtilisateur.Agence;
 import GestionUtilisateur.PorteurOffre;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +35,7 @@ public class PorteurOffreFacade extends AbstractFacade<PorteurOffre> implements 
     }
 
     @Override
-    public PorteurOffre creerPorteurOffre(String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation,Offre offre){
+    public PorteurOffre creerPorteurOffre(String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,Offre offre,Agence agence){
         PorteurOffre po = new PorteurOffre();
         po.setNom(nom);
         po.setPrenom(prenom);
@@ -43,16 +44,16 @@ public class PorteurOffreFacade extends AbstractFacade<PorteurOffre> implements 
         po.setMdp(mdp);
         po.setProfilTechnique(profil);
         po.setActifInactif(actifInactif);
-        po.setPlafondDelegation(plafondDelegation);
         po.setDateCreationCompte(new Date());
         po.setOffre(offre);
+        po.setAgence(agence);
         create(po);  
         return po;
     }
     
     
     @Override //Méthode pour Administrateur
-    public PorteurOffre modifierPorteurOffre(PorteurOffre po, String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation,Offre offre){
+    public PorteurOffre modifierPorteurOffre(PorteurOffre po, String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,Offre offre, Agence agence){
         po.setNom(nom);
         po.setPrenom(prenom);
         po.setMail(mail);
@@ -60,8 +61,8 @@ public class PorteurOffreFacade extends AbstractFacade<PorteurOffre> implements 
         po.setMdp(mdp);
         po.setProfilTechnique(profil);
         po.setActifInactif(actifInactif);
-        po.setPlafondDelegation(plafondDelegation);
         po.setOffre(offre);
+        po.setAgence(agence);
         edit(po);
         return po;
     }

@@ -7,6 +7,7 @@ package FacadeUtilisateur;
 
 import Enum.ProfilTechnique;
 import GestionCatalogue.Offre;
+import GestionUtilisateur.Agence;
 import GestionUtilisateur.ReferentLocal;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +35,7 @@ public class ReferentLocalFacade extends AbstractFacade<ReferentLocal> implement
     }
     
     @Override
-    public ReferentLocal creerReferentLocal(String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation,Offre offre){
+    public ReferentLocal creerReferentLocal(String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation,Offre offre,Agence agence){
         ReferentLocal rl = new ReferentLocal();
         rl.setNom(nom);
         rl.setPrenom(prenom);
@@ -46,13 +47,14 @@ public class ReferentLocalFacade extends AbstractFacade<ReferentLocal> implement
         rl.setPlafondDelegation(plafondDelegation);
         rl.setDateCreationCompte(new Date());
         rl.setOffre(offre);
+        rl.setAgence(agence);
         create(rl);  
         return rl;
     }
     
     
     @Override //Méthode pour Administrateur
-    public ReferentLocal modifierReferentLocal(ReferentLocal rl, String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation,Offre offre){
+    public ReferentLocal modifierReferentLocal(ReferentLocal rl, String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation,Offre offre,Agence agence){
         rl.setNom(nom);
         rl.setPrenom(prenom);
         rl.setMail(mail);
@@ -62,6 +64,7 @@ public class ReferentLocalFacade extends AbstractFacade<ReferentLocal> implement
         rl.setActifInactif(actifInactif);
         rl.setPlafondDelegation(plafondDelegation);
         rl.setOffre(offre);
+        rl.setAgence(agence);
         edit(rl);
         return rl;
     }

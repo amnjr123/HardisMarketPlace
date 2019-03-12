@@ -30,7 +30,14 @@ public class Consultant extends UtilisateurHardis implements Serializable {
         this.offres = offres;
     }
 
- 
+    private Float plafondDelegation;
 
+    public Float getPlafondDelegation() {
+        return plafondDelegation;
+    }
+
+    public void setPlafondDelegation(Float plafondDelegation) {
+        this.plafondDelegation = plafondDelegation;
+    }
      
 }

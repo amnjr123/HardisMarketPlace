@@ -27,5 +27,15 @@ public class ReferentLocal extends UtilisateurHardis implements Serializable {
     public void setOffre(Offre offre) {
         this.offre = offre;
     }
+    
+    private Float plafondDelegation;
+
+    public Float getPlafondDelegation() {
+        return plafondDelegation;
+    }
+
+    public void setPlafondDelegation(Float plafondDelegation) {
+        this.plafondDelegation = plafondDelegation;
+    }
      
 }

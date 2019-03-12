@@ -6,6 +6,7 @@
 package FacadeUtilisateur;
 
 import GestionUtilisateur.Client;
+import GestionUtilisateur.Entreprise;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -32,7 +33,7 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     }
 
     @Override
-    public Client creerClient(String nom,String prenom,String mail,String tel,String mdp){
+    public Client creerClient(String nom,String prenom,String mail,String tel,String mdp, Entreprise e){
         Client c = new Client();
         c.setNom(nom);
         c.setPrenom(prenom);
@@ -40,6 +41,7 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
         c.setTelephone(tel);
         c.setMdp(mdp);
         c.setDateCreationCompte(new Date());
+        c.setEntreprise(e);
         create(c);  
         return c;
     }
