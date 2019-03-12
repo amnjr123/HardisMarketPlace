@@ -6,6 +6,7 @@
 package FacadeUtilisateur;
 
 import GestionUtilisateur.CV;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,31 +29,31 @@ public class CVFacade extends AbstractFacade<CV> implements CVFacadeLocal {
     public CVFacade() {
         super(CV.class);
     }
-    /*
+    
     public CV creerCV(String localisation){
         CV a = new CV();
-        a.setLocalisation(localisation);
+       // a.setLocalisation(localisation);
         create(a);  
         return a;
     }
     
-    public CV modifierAgence(Agence a, String localisation){
-        a.setLocalisation(localisation);
+    public CV modifierAgence(CV a, String localisation){
+     //   a.setLocalisation(localisation);
         edit(a);
         return a;
     }
     
-    public Agence supprimerAgence(Agence a){
+    public CV supprimerAgence(CV a){
         remove(a);
         return a;
     }
     
-    public Agence rechercheAgence(long id){
+    public CV rechercheAgence(long id){
         return find(id);
     }
     
-    public List<Agence> rechercheAgence(){
+    public List<CV> rechercheAgence(){
         return findAll();
-    }*/
+    }
     
 }
