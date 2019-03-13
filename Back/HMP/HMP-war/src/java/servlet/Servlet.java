@@ -41,7 +41,6 @@ public class Servlet extends HttpServlet {
                 String login = request.getParameter("email").trim();
                 String mdp = request.getParameter("pw");
                 Utilisateur utilisateur = sessionMain.authentification(login, mdp);
-                System.out.println(login+" "+ mdp + utilisateur.toString());
 
                 if (utilisateur != null) {
                     if (sessionMain.getTypeUser(utilisateur).equalsIgnoreCase("Client")) {
@@ -60,7 +59,7 @@ public class Servlet extends HttpServlet {
             }
 
             /*Control Deconnexion*/
-            if (act.equals("deconnexion")) {
+            if (act.equals("logout")) {
                 sessionHttp.setAttribute(ATT_SESSION_CLIENT, null); //Enlever le Token
                 sessionHttp.setAttribute(ATT_SESSION_HARDIS, null); //Enlever le Token
                 jspClient = "/login.jsp";
