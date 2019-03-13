@@ -20,7 +20,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(name = "id")
 public class ServiceStandard extends Service implements Serializable {
 //Clés étrangères
-@OneToMany(mappedBy = "service")
+@OneToMany(mappedBy = "serviceStandard")
     private List<DevisStandard> devisStandards;
 
     public List<DevisStandard> getDevisStandards() {

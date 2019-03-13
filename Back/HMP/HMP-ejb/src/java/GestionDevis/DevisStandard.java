@@ -20,14 +20,14 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class DevisStandard extends Devis implements Serializable {
 //Clés étrangères
     @ManyToOne
-    private ServiceStandard service;
+    private ServiceStandard serviceStandard;
 
-    public ServiceStandard getService() {
-        return service;
+    public ServiceStandard getServiceStandard() {
+        return serviceStandard;
     }
 
-    public void setService(ServiceStandard service) {
-        this.service = service;
+    public void setServiceStandard(ServiceStandard serviceStandard) {
+        this.serviceStandard = serviceStandard;
     }
 
 }

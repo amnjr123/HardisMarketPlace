@@ -44,6 +44,7 @@ public class DevisStandardFacade extends AbstractFacade<DevisStandard> implement
         d.setDateCreation(new Date());
         d.setMontant(montant);
         d.setCommentaireClient(commentaireClient);
+        d.setServiceStandard(serviceStandard);
         d.setUtilisateurHardis(rl);
         d.setAgence(agence);
         create(d);  

@@ -44,6 +44,7 @@ public class DevisNonStandardFacade extends AbstractFacade<DevisNonStandard> imp
         d.setDateCreation(new Date());
         d.setMontant(montant);
         d.setCommentaireClient(commentaireClient);
+        d.setServiceNonStandard(serviceNonStandard);
         d.setUtilisateurHardis(rl);
         d.setAgence(agence);
         create(d);  
