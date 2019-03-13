@@ -36,8 +36,8 @@ public class Servlet extends HttpServlet {
         String act = request.getParameter("action");
         
            if (act.equals("connexion")) {
-            String login = request.getParameter("login").trim();
-            String mdp = request.getParameter("password");
+            String login = request.getParameter("email").trim();
+            String mdp = request.getParameter("pw");
             Utilisateur utilisateur = sessionMain.authentification(login, mdp);
 
             if (utilisateur != null) {
