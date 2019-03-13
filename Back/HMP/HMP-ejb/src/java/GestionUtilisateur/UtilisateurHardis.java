@@ -6,6 +6,10 @@
 package GestionUtilisateur;
 
 import Enum.ProfilTechnique;
+import GestionDevis.Communication;
+import GestionDevis.HistoriqueUtilisateurDevis;
+import GestionDevis.Intervention;
+import GestionDevis.Proposition;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -49,6 +53,49 @@ public class UtilisateurHardis extends Utilisateur implements Serializable {
 
     public void setDisponibilites(List<Disponibilite> disponibilites) {
         this.disponibilites = disponibilites;
+    }
+    
+    @OneToMany(mappedBy = "UtilisateurHardis")
+    private List<HistoriqueUtilisateurDevis> historiqueUtilisateurDeviss;
+
+    public List<HistoriqueUtilisateurDevis> getHistoriqueUtilisateurDeviss() {
+        return historiqueUtilisateurDeviss;
+    }
+
+    public void setHistoriqueUtilisateurDeviss(List<HistoriqueUtilisateurDevis> historiqueUtilisateurDeviss) {
+        this.historiqueUtilisateurDeviss = historiqueUtilisateurDeviss;
+    }
+    @OneToMany(mappedBy = "UtilisateurHardis")
+    private List<Intervention> interventions;
+
+    public List<Intervention> getInterventions() {
+        return interventions;
+    }
+
+    public void setInterventions(List<Intervention> interventions) {
+        this.interventions = interventions;
+    }
+    
+    @OneToMany(mappedBy = "UtilisateurHardis")
+    private List<Proposition> propositions;
+
+    public List<Proposition> getPropositions() {
+        return propositions;
+    }
+
+    public void setPropositions(List<Proposition> propositions) {
+        this.propositions = propositions;
+    }
+    
+    @OneToMany(mappedBy = "utilisateurHardis")
+    private List<Communication> communications;
+
+    public List<Communication> getCommunications() {
+        return communications;
+    }
+
+    public void setCommunications(List<Communication> communications) {
+        this.communications = communications;
     }
     
 //Attributs

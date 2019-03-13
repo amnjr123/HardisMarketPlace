@@ -5,11 +5,11 @@
  */
 package GestionCatalogue;
 
+import GestionDevis.DevisStandard;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
@@ -19,6 +19,18 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 public class ServiceStandard extends Service implements Serializable {
+//Clés étrangères
+@OneToMany(mappedBy = "service")
+    private List<DevisStandard> devisStandards;
+
+    public List<DevisStandard> getDevisStandards() {
+        return devisStandards;
+    }
+
+    public void setDevisStandards(List<DevisStandard> devisStandards) {
+        this.devisStandards = devisStandards;
+    }
+
 //Attributs
     private int nbrJoursConsultantSenior;
 

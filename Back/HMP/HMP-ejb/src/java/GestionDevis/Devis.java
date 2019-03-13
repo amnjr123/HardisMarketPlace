@@ -8,10 +8,14 @@ package GestionDevis;
 import Enum.StatutDevis;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -19,7 +23,42 @@ import javax.persistence.Temporal;
  * @author 5151882
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Devis implements Serializable {
+//Clés étrangères
+    @OneToMany(mappedBy = "devis")
+    private List<HistoriqueUtilisateurDevis> historiqueUtilisateurDeviss;
+
+    public List<HistoriqueUtilisateurDevis> getHistoriqueUtilisateurDeviss() {
+        return historiqueUtilisateurDeviss;
+    }
+
+    public void setHistoriqueUtilisateurDeviss(List<HistoriqueUtilisateurDevis> historiqueUtilisateurDeviss) {
+        this.historiqueUtilisateurDeviss = historiqueUtilisateurDeviss;
+    }
+    
+    @OneToMany(mappedBy = "devis")
+    private List<Intervention> interventions;
+
+    public List<Intervention> getInterventions() {
+        return interventions;
+    }
+
+    public void setInterventions(List<Intervention> interventions) {
+        this.interventions = interventions;
+    }
+    
+    @OneToMany(mappedBy = "devis")
+    private List<Communication> communications;
+
+    public List<Communication> getCommunications() {
+        return communications;
+    }
+
+    public void setCommunications(List<Communication> communications) {
+        this.communications = communications;
+    }
+    
 //Attributs
     private static final long serialVersionUID = 1L;
     @Id
@@ -57,14 +96,14 @@ public class Devis implements Serializable {
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dateCreation;
 
-    public Date getDate() {
+    public Date getDateCreation() {
         return dateCreation;
     }
 
-    public void setDate(Date dateCreation) {
+    public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
-
+    
     private Float montant;
 
     public Float getMontant() {

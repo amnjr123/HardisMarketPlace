@@ -7,3 +7,4 @@
 /Back/HMP/HMP-ejb/dist/
 /Back/HMP/HMP-war/build/
 /Back/HMP/HMP-war/dist/
+*.dat

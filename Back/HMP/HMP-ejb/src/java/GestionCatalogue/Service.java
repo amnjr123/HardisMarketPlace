@@ -157,13 +157,13 @@ public class Service implements Serializable {
         this.dateFinValidite = dateFinValidite;
     }
 
-    private int ancienID;
+    private long ancienID;
 
-    public int getAncienID() {
+    public long getAncienID() {
         return ancienID;
     }
 
-    public void setAncienID(int ancienID) {
+    public void setAncienID(long ancienID) {
         this.ancienID = ancienID;
     }
 
