@@ -54,7 +54,7 @@
                             <td>amnjr123@gmail.com</td>
                             <td>06 24 31 88 57</td>
                             <td>Administrateur</td>
-                            <td>Actif</td>
+                            <td><i data-feather="edit-2" style="color :#007bff"></i></td>
                             <td><div class="dropdown">
                                     <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Action
