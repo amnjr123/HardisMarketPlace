@@ -1,12 +1,12 @@
 <jsp:include page="header.jsp"/>
-    <link href="./css/custom/form-validation.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/custom/form-validation.css" rel="stylesheet">
   </head>
 
   <body class="bg-light">
 
     <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="./assets/baseline-person-24px.svg" alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="${pageContext.request.contextPath}/assets/baseline-person-24px.svg" alt="" width="72" height="72">
         <h2>Créez un compte</h2>
       </div>
 
@@ -85,11 +85,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
