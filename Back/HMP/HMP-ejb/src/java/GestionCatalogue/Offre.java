@@ -5,6 +5,7 @@
  */
 package GestionCatalogue;
 
+import GestionUtilisateur.CV;
 import GestionUtilisateur.Consultant;
 import GestionUtilisateur.PorteurOffre;
 import GestionUtilisateur.ReferentLocal;
@@ -17,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -58,6 +60,28 @@ public class Offre implements Serializable {
         this.po = po;
     }
     
+    @OneToMany(mappedBy = "offre")
+    private List<CV> CVs;
+
+    public List<CV> getCVs() {
+        return CVs;
+    }
+
+    public void setCVs(List<CV> CVs) {
+        this.CVs = CVs;
+    }
+    
+    @OneToMany(mappedBy = "offre")
+    private List<Service> services;
+
+    public List<Service> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Service> services) {
+        this.services = services;
+    }
+    
 //Attributs
     private static final long serialVersionUID = 1L;
     @Id
@@ -72,6 +96,38 @@ public class Offre implements Serializable {
         this.id = id;
     }
 
+    private String libelle;
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private java.util.Date dateDebutValidite;
+
+    public java.util.Date getDateDebutValidite() {
+        return dateDebutValidite;
+    }
+
+    public void setDateDebutValidite(java.util.Date dateDebutValidite) {
+        this.dateDebutValidite = dateDebutValidite;
+    }
+
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private java.util.Date dateFinValidite;
+
+    public java.util.Date getDateFinValidite() {
+        return dateFinValidite;
+    }
+
+    public void setDateFinValidite(java.util.Date dateFinValidite) {
+        this.dateFinValidite = dateFinValidite;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
