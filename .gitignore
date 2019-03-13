@@ -9,3 +9,7 @@
 /Back/HMP/HMP-war/dist/
 /Back/DB/derby.txt
 /Back/DB/derby.properties
+Back/DB/derby.log
+Back/DB/HMP/db.lck
+Back/DB/HMP/log/log1.dat
+Back/DB/HMP/seg0/c4b0.dat

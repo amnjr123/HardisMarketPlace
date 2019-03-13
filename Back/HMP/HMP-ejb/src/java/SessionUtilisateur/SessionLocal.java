@@ -7,6 +7,7 @@ package SessionUtilisateur;
 
 import GestionUtilisateur.Client;
 import GestionUtilisateur.Utilisateur;
+import GestionUtilisateur.UtilisateurHardis;
 import javax.ejb.Local;
 
 /**
@@ -21,5 +22,7 @@ public interface SessionLocal {
     String getTypeUser(Utilisateur utilisateur);
 
     Client rechercheClient(long id);
+
+    UtilisateurHardis rechercheUtilisateurHardis(Long id);
     
 }
