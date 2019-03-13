@@ -40,5 +40,9 @@ public interface EntrepriseFacadeLocal {
     List<Entreprise> rechercheEntreprise();
 
     Entreprise creerEntreprise(String nom, String siret, String adresse, String mdp, Agence a);
+
+    Entreprise rechercheEntrepriseSiret(String siret);
+
+    Entreprise rechercheEntrepriseNom(String nom);
     
 }

@@ -16,6 +16,9 @@ import FacadeUtilisateur.InterlocuteurFacadeLocal;
 import FacadeUtilisateur.PorteurOffreFacadeLocal;
 import FacadeUtilisateur.ReferentLocalFacadeLocal;
 import FacadeUtilisateur.UtilisateurFacadeLocal;
+import GestionUtilisateur.Agence;
+import GestionUtilisateur.Entreprise;
+import GestionUtilisateur.Interlocuteur;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -56,7 +59,20 @@ public class SessionAdministrateur implements SessionAdministrateurLocal {
     @EJB
     private AgenceFacadeLocal agenceFacade;
 
-    
+    @Override
+    public Agence creerAgence(String localisation) {
+        return agenceFacade.creerAgence(localisation);
+    }
+
+    @Override
+    public Entreprise creerEntreprise(String nom, String siret, String adresseFacturation, String mdpRattachement, long idAgence) {
+        return entrepriseFacade.creerEntreprise(nom, siret, siret, nom, agenceFacade.rechercheAgence(idAgence));
+    }
+
+    @Override
+    public Interlocuteur creerInterlocuteur(String nom, String prenom, String telephone, String fonction, long idEntreprise) {
+        return interlocuteurFacade.creerInterlocuteur(nom, prenom, nom, telephone, fonction, entrepriseFacade.rechercheEntreprise(idEntreprise));
+    }
 
     
     

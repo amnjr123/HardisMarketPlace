@@ -5,6 +5,9 @@
  */
 package SessionUtilisateur;
 
+import GestionUtilisateur.Agence;
+import GestionUtilisateur.Entreprise;
+import GestionUtilisateur.Interlocuteur;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +16,11 @@ import javax.ejb.Local;
  */
 @Local
 public interface SessionAdministrateurLocal {
+
+    Agence creerAgence(String localisation);
+
+    Entreprise creerEntreprise(String nom, String siret, String adresseFacturation, String mdpRattachement, long idAgence);
+
+    Interlocuteur creerInterlocuteur(String nom, String prenom, String telephone, String fonction, long idEntreprise);
     
 }

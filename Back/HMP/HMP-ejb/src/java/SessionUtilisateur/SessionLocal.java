@@ -24,5 +24,7 @@ public interface SessionLocal {
     Client rechercheClient(long id);
 
     UtilisateurHardis rechercheUtilisateurHardis(Long id);
+
+    void test();
     
 }

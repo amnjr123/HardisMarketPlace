@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>nomClient</title>
 
-    <link href="./../css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="./../css/custom/dashboard.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/custom/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -33,43 +33,43 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="indexClient.jsp">
+                <a class="nav-link active" href="${pageContext.request.contextPath}/client/index.jsp">
                   <span data-feather="monitor"></span>
                   Tableau de bord
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="monProfil.jsp">
+                <a class="nav-link" href="${pageContext.request.contextPath}/client/monProfil.jsp">
                   <span data-feather="user"></span>
                   Mon profil
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="devis.jsp">
+                <a class="nav-link" href="${pageContext.request.contextPath}/client/devis.jsp">
                   <span data-feather="file-text"></span>
                   Devis
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="commandes.jsp">
+                <a class="nav-link" href="${pageContext.request.contextPath}/client/commandes.jsp">
                   <span data-feather="shopping-cart"></span>
                   Commandes
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="factures.jsp">
+                <a class="nav-link" href="${pageContext.request.contextPath}/client/factures.jsp">
                   <span data-feather="square"></span>
                   Factures
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="calendrier.jsp">
+                <a class="nav-link" href="${pageContext.request.contextPath}/client/calendrier.jsp">
                   <span data-feather="calendar"></span>
                   Calendrier
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="inbox.jsp">
+                <a class="nav-link" href="${pageContext.request.contextPath}/client/inbox.jsp">
                   <span data-feather="inbox"></span>
                   Inbox
                 </a>
