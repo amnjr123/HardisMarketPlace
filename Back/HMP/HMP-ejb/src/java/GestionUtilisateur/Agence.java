@@ -5,6 +5,7 @@
  */
 package GestionUtilisateur;
 
+import GestionDevis.Devis;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -31,6 +32,17 @@ public class Agence implements Serializable {
         this.utilisateurHardiss = utilisateurHardiss;
     }
 
+    @OneToMany(mappedBy = "agence")
+    private List<Devis> deviss;
+
+    public List<Devis> getDeviss() {
+        return deviss;
+    }
+
+    public void setDeviss(List<Devis> deviss) {
+        this.deviss = deviss;
+    }
+    
 //Attributs
     private static final long serialVersionUID = 1L;
     @Id

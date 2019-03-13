@@ -6,6 +6,11 @@
 package FacadeDevis;
 
 import GestionDevis.Communication;
+import GestionDevis.Devis;
+import GestionUtilisateur.Client;
+import GestionUtilisateur.UtilisateurHardis;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +33,44 @@ public class CommunicationFacade extends AbstractFacade<Communication> implement
     public CommunicationFacade() {
         super(Communication.class);
     }
+    //Dans le cadre d'un devis
+    @Override
+    public Communication creerCommunication(String contenu,Client client, UtilisateurHardis uh, Devis devis){
+        Communication c = new Communication();
+        c.setDateEnvoi(new Date());
+        c.setContenu(contenu);
+        c.setClient(client);
+        c.setUtilisateurHardis(uh);
+        c.setDevis(devis);
+        create(c);  
+        return c;
+    }
     
+    //Hors devis
+    @Override
+    public Communication creerCommunication(String contenu,Client client, UtilisateurHardis uh){
+        Communication c = new Communication();
+        c.setDateEnvoi(new Date());
+        c.setContenu(contenu);
+        c.setClient(client);
+        c.setUtilisateurHardis(uh);
+        create(c);  
+        return c;
+    }
+    
+    @Override
+    public Communication supprimerCommunication(Communication c){
+        remove(c);
+        return c;
+    }
+    
+    @Override
+    public Communication rechercheCommunication(long id){
+        return find(id);
+    }
+    
+    @Override
+    public List<Communication> rechercheCommunication(){
+        return findAll();
+    }
 }

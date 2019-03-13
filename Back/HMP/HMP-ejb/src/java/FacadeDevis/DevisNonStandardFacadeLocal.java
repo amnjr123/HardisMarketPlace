@@ -5,7 +5,11 @@
  */
 package FacadeDevis;
 
+import GestionCatalogue.ServiceNonStandard;
 import GestionDevis.DevisNonStandard;
+import GestionUtilisateur.Agence;
+import GestionUtilisateur.ReferentLocal;
+import GestionUtilisateur.UtilisateurHardis;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +33,25 @@ public interface DevisNonStandardFacadeLocal {
     List<DevisNonStandard> findRange(int[] range);
 
     int count();
+
+    DevisNonStandard creerDevisNonStandard(float montant, String commentaireClient, ServiceNonStandard serviceNonStandard, ReferentLocal rl, Agence agence);
+
+    DevisNonStandard modifierDevisNonStandard(DevisNonStandard d, float montant);
+
+    DevisNonStandard transfererDevisNonStandard(DevisNonStandard d, UtilisateurHardis uh);
+
+    DevisNonStandard validerDevisNonStandard(DevisNonStandard d);
+
+    DevisNonStandard refuserDevisNonStandard(DevisNonStandard d, String motifRefus);
+
+    DevisNonStandard acompteDevisNonStandard(DevisNonStandard d);
+
+    DevisNonStandard supprimerDevisNonStandard(DevisNonStandard d);
+
+    DevisNonStandard rechercheDevisNonStandard(long id);
+
+    List<DevisNonStandard> rechercheDevisNonStandard();
+
+    DevisNonStandard envoyerDevisNonStandard(DevisNonStandard d);
     
 }

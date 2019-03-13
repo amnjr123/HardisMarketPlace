@@ -6,15 +6,19 @@
 package GestionDevis;
 
 import Enum.StatutDevis;
+import GestionUtilisateur.Agence;
+import GestionUtilisateur.UtilisateurHardis;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
@@ -59,7 +63,34 @@ public class Devis implements Serializable {
         this.communications = communications;
     }
     
+    @ManyToOne
+    private UtilisateurHardis utilisateurHardis;
+
+    public UtilisateurHardis getUtilisateurHardis() {
+        return utilisateurHardis;
+    }
+
+    public void setUtilisateurHardis(UtilisateurHardis utilisateurHardis) {
+        this.utilisateurHardis = utilisateurHardis;
+    }
+    
+    @ManyToOne
+    private Agence agence;
+
+    public Agence getAgence() {
+        return agence;
+    }
+
+    public void setAgence(Agence agence) {
+        this.agence = agence;
+    }
+
+
+    
 //Attributs
+    @Column(insertable = false, updatable = false) 
+    private String dtype;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -103,6 +134,53 @@ public class Devis implements Serializable {
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
+    //Date d'envoi au client
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date dateEnvoi;
+
+    public Date getDateEnvoi() {
+        return dateEnvoi;
+    }
+
+    public void setDateEnvoi(Date dateEnvoi) {
+        this.dateEnvoi = dateEnvoi;
+    }
+
+    
+    //Date du refus ou de l'acceptation du devis du côté client
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date dateReponse;
+
+    public Date getDateReponse() {
+        return dateReponse;
+    }
+
+    public void setDateReponse(Date dateReponse) {
+        this.dateReponse = dateReponse;
+    }
+
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date dateAcompte;
+
+    public Date getDateAcompte() {
+        return dateAcompte;
+    }
+
+    public void setDateAcompte(Date dateAcompte) {
+        this.dateAcompte = dateAcompte;
+    }
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date dateReglement;
+
+    public Date getDateReglement() {
+        return dateReglement;
+    }
+
+    public void setDateReglement(Date dateReglement) {
+        this.dateReglement = dateReglement;
+    }
+
+
     
     private Float montant;
 

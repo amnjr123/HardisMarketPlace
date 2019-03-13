@@ -6,6 +6,7 @@
 package FacadeUtilisateur;
 
 import Enum.ProfilTechnique;
+import GestionCatalogue.Offre;
 import GestionUtilisateur.Agence;
 import GestionUtilisateur.Consultant;
 import java.util.List;
@@ -40,8 +41,9 @@ public interface ConsultantFacadeLocal {
 
     List<Consultant> rechercheConsultant();
 
-    Consultant modifierConsultant(Consultant c, String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation);
+    Consultant creerConsultant(String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Agence agence, List<Offre> offres);
 
-    Consultant creerConsultant(String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, Agence agence);
+    Consultant modifierConsultant(Consultant c, String nom, String prenom, String mail, String tel, String mdp, ProfilTechnique profil, Boolean actifInactif, float plafondDelegation, List<Offre> offres);
+
     
 }

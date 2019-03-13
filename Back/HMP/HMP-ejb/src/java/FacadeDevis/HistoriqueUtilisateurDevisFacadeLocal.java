@@ -5,7 +5,9 @@
  */
 package FacadeDevis;
 
+import GestionDevis.Devis;
 import GestionDevis.HistoriqueUtilisateurDevis;
+import GestionUtilisateur.UtilisateurHardis;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +31,9 @@ public interface HistoriqueUtilisateurDevisFacadeLocal {
     List<HistoriqueUtilisateurDevis> findRange(int[] range);
 
     int count();
+
+    HistoriqueUtilisateurDevis creerPremierHistoriqueUtilisateurDevis(Devis devis, UtilisateurHardis uh);
+
+    HistoriqueUtilisateurDevis creerSuiteHistoriqueUtilisateurDevis(HistoriqueUtilisateurDevis ancienHistorique, UtilisateurHardis nouvelUtilisateur);
     
 }

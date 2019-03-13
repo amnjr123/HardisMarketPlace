@@ -24,6 +24,8 @@ import javax.persistence.Temporal;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur implements Serializable {
 
+    @Column(insertable = false, updatable = false) 
+    private String dtype;
 
     private static final long serialVersionUID = 1L;
     @Id

@@ -10,8 +10,12 @@ import GestionCatalogue.ServiceStandard;
 import javax.ejb.Stateless;
 import FacadeUtilisateur.AbstractFacade;
 import GestionCatalogue.Offre;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -46,7 +50,11 @@ public class ServiceStandardFacade extends AbstractFacade<ServiceStandard> imple
         s.setDelaiRelance(delaiRelance);
         s.setOffre(o);
         s.setDateDebutValidite(new Date());
-        s.setDateFinValidite(new Date(Long.MAX_VALUE));
+        try {
+            s.setDateFinValidite(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2999"));
+        } catch (ParseException ex) {
+            Logger.getLogger(ServiceNonStandardFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
         s.setAncienID(0);
         s.setNbrJoursConsultantSenior(nbJoursConsultantSenior);
         s.setNbrJoursConsultantConfirme(nbJoursConsultantConfirme);
@@ -70,7 +78,11 @@ public class ServiceStandardFacade extends AbstractFacade<ServiceStandard> imple
         nouveauService.setDelaiRelance(delaiRelance);
         nouveauService.setOffre(o);
         nouveauService.setDateDebutValidite(new Date());
-        nouveauService.setDateFinValidite(new Date(Long.MAX_VALUE));
+        try {
+            nouveauService.setDateFinValidite(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2999"));
+        } catch (ParseException ex) {
+            Logger.getLogger(ServiceNonStandardFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
         nouveauService.setAncienID(ancienService.getId());
         nouveauService.setNbrJoursConsultantSenior(nbJoursConsultantSenior);
         nouveauService.setNbrJoursConsultantConfirme(nbJoursConsultantConfirme);

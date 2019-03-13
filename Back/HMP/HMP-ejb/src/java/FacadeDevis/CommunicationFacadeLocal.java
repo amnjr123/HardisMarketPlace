@@ -6,6 +6,9 @@
 package FacadeDevis;
 
 import GestionDevis.Communication;
+import GestionDevis.Devis;
+import GestionUtilisateur.Client;
+import GestionUtilisateur.UtilisateurHardis;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +32,15 @@ public interface CommunicationFacadeLocal {
     List<Communication> findRange(int[] range);
 
     int count();
+
+    Communication creerCommunication(String contenu, Client client, UtilisateurHardis uh);
+
+    Communication creerCommunication(String contenu, Client client, UtilisateurHardis uh, Devis devis);
+
+    Communication supprimerCommunication(Communication c);
+
+    Communication rechercheCommunication(long id);
+
+    List<Communication> rechercheCommunication();
     
 }

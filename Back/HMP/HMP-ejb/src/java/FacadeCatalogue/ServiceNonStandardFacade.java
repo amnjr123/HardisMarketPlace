@@ -52,7 +52,7 @@ public class ServiceNonStandardFacade extends AbstractFacade<ServiceNonStandard>
         s.setOffre(o);
         s.setDateDebutValidite(new Date());
         try {
-            s.setDateFinValidite(new SimpleDateFormat("dd/MM/yyyy").parse("31/12/2999"));
+            s.setDateFinValidite(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2999"));
         } catch (ParseException ex) {
             Logger.getLogger(ServiceNonStandardFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -74,7 +74,7 @@ public class ServiceNonStandardFacade extends AbstractFacade<ServiceNonStandard>
         nouveauService.setOffre(o);
         nouveauService.setDateDebutValidite(new Date());
         try {
-            nouveauService.setDateFinValidite(new SimpleDateFormat("dd/MM/yyyy").parse("31/12/2999"));
+            nouveauService.setDateFinValidite(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2999"));
         } catch (ParseException ex) {
             Logger.getLogger(ServiceNonStandardFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
