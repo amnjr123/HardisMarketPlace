@@ -1,10 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package servlet;
 
+import GestionUtilisateur.Client;
+import GestionUtilisateur.Utilisateur;
+import GestionUtilisateur.UtilisateurHardis;
 import SessionUtilisateur.SessionClientLocal;
+import SessionUtilisateur.SessionLocal;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -13,16 +13,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author 5151882
- */
 @WebServlet(urlPatterns = {"/Servlet"})
 public class Servlet extends HttpServlet {
 
     @EJB
-    private SessionClientLocal sessionClient;
+    private SessionLocal sessionMain;
+    
+    private final String ATT_SESSION_CLIENT = "sessionClient";
+    
+    private final String ATT_SESSION_HARDIS = "sessionHardis";
 
     private String jspClient = "/login.jsp";
   
@@ -30,8 +31,39 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        sessionClient.creerPO();
+        HttpSession sessionHttp = request.getSession();
         
+        String act = request.getParameter("action");
+        
+           if (act.equals("connexion")) {
+            String login = request.getParameter("login").trim();
+            String mdp = request.getParameter("password");
+            Utilisateur utilisateur = sessionMain.authentification(login, mdp);
+
+            if (utilisateur != null) {
+                if(sessionMain.getTypeUser(utilisateur).equalsIgnoreCase("Client")){
+                Client c = sessionMain.rechercheClient(utilisateur.getId());
+                sessionHttp.setAttribute(ATT_SESSION_CLIENT, c);//Attribuer le Token
+                jspClient = "/client/index.jsp";
+                }else{
+                    UtilisateurHardis uh = sessionMain.rechercheUtilisateurHardis(utilisateur.getId());
+                    sessionHttp.setAttribute(ATT_SESSION_HARDIS, uh);//Attribuer le Token
+                jspClient = "/utilisateurHardis/index.jsp";
+                }       
+            } else {
+                jspClient = "/login.jsp";
+                request.setAttribute("msgError", "Utilisateur inexistant");
+            }
+        }
+
+        /*Control Deconnexion*/
+        if (act.equals("deconnexion")) {
+            sessionHttp.setAttribute(ATT_SESSION_CLIENT, null); //Enlever le Token
+            sessionHttp.setAttribute(ATT_SESSION_HARDIS, null); //Enlever le Token
+            jspClient = "/login.jsp";
+        }
+        /*Fin Deconnexion*/
+
         
         RequestDispatcher rd = getServletContext().getRequestDispatcher(jspClient);
         rd.forward(request, response);
@@ -76,5 +108,4 @@ public class Servlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

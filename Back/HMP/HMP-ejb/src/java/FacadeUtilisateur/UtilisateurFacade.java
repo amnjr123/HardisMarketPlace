@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package FacadeUtilisateur;
 
+import Enum.Helpers;
 import GestionUtilisateur.Utilisateur;
+import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,9 +28,38 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     public UtilisateurFacade() {
         super(Utilisateur.class);
     }
-    
-    public Utilisateur authentification(String mail, String mdp){
-        Utilisateur u = null;
-        return u;
+
+    @Override
+    public Utilisateur authentification(String mail, String mdp) {
+        Query requete = getEntityManager().createQuery("select u from Utilisateur as u where u.mail=:mail and u.mdp=:mdp");
+        requete.setParameter("mail", mail);
+        try {
+            requete.setParameter("mdp", Helpers.sha1(mdp));
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(UtilisateurFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (!requete.getResultList().isEmpty()) {
+            return (Utilisateur) requete.getSingleResult();
+        } else {
+            return null;
+        }
     }
+
+    @Override
+    public String getDType(Utilisateur u) {
+        Query requete = getEntityManager().createQuery("select u.DTYPE from Utilisateur as u where u=:utilisateur ");
+        requete.setParameter("utilisateur", u);
+        if (!requete.getResultList().isEmpty()) {
+            return requete.getSingleResult().toString();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Utilisateur rechercheUtilisateur(long id) {
+        return find(id);
+    }
+    
+    
 }

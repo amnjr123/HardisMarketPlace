@@ -29,5 +29,11 @@ public interface UtilisateurFacadeLocal {
     List<Utilisateur> findRange(int[] range);
 
     int count();
+
+    public Utilisateur authentification(String mail, String mdp);
+
+    public String getDType(Utilisateur u);
+
+    Utilisateur rechercheUtilisateur(long id);
     
 }
