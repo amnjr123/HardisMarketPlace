@@ -78,4 +78,17 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
         edit(c);
         return c;
     }
+
+    @Override
+    public void test() {
+        Client c = new Client();
+        c.setNom("Hamad ");
+        c.setPrenom("Borkovich");
+        c.setMail("test@gmail.com");
+        c.setTelephone("0600000000");
+        c.setMdp("test");
+        c.setDateCreationCompte(new Date());
+       // c.setEntreprise(e);
+        create(c);  
+    }
 }

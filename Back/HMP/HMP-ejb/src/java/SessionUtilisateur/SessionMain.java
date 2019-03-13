@@ -40,5 +40,10 @@ public class SessionMain implements SessionLocal {
     public UtilisateurHardis rechercheUtilisateurHardis(Long id) {
         return utilisateurHardisFacade.find(id);
     }
+    
+    @Override
+    public void test(){
+        clientFacade.test();
+    }
         
 }

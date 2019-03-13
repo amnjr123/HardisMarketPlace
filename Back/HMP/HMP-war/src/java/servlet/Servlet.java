@@ -20,51 +20,54 @@ public class Servlet extends HttpServlet {
 
     @EJB
     private SessionLocal sessionMain;
-    
+
     private final String ATT_SESSION_CLIENT = "sessionClient";
-    
+
     private final String ATT_SESSION_HARDIS = "sessionHardis";
 
     private String jspClient = "/login.jsp";
-  
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         HttpSession sessionHttp = request.getSession();
-
-        String act = request.getParameter("action");
+        //sessionMain.test();
         
-           if (act.equals("connexion")) {
-            String login = request.getParameter("email").trim();
-            String mdp = request.getParameter("pw");
-            Utilisateur utilisateur = sessionMain.authentification(login, mdp);
+        if (request.getParameter("action") != null) {
+            String act = request.getParameter("action");
 
-            if (utilisateur != null) {
-                if(sessionMain.getTypeUser(utilisateur).equalsIgnoreCase("Client")){
-                Client c = sessionMain.rechercheClient(utilisateur.getId());
-                sessionHttp.setAttribute(ATT_SESSION_CLIENT, c);//Attribuer le Token
-                jspClient = "/client/index.jsp";
-                }else{
-                    UtilisateurHardis uh = sessionMain.rechercheUtilisateurHardis(utilisateur.getId());
-                    sessionHttp.setAttribute(ATT_SESSION_HARDIS, uh);//Attribuer le Token
-                jspClient = "/utilisateurHardis/index.jsp";
-                }       
-            } else {
-                jspClient = "/login.jsp";
-                request.setAttribute("msgError", "Utilisateur inexistant");
+            if (act.equals("login")) {
+                String login = request.getParameter("email").trim();
+                String mdp = request.getParameter("pw");
+                Utilisateur utilisateur = sessionMain.authentification(login, mdp);
+                System.out.println(login+" "+ mdp + utilisateur.toString());
+
+                if (utilisateur != null) {
+                    if (sessionMain.getTypeUser(utilisateur).equalsIgnoreCase("Client")) {
+                        Client c = sessionMain.rechercheClient(utilisateur.getId());
+                        sessionHttp.setAttribute(ATT_SESSION_CLIENT, c);//Attribuer le Token
+                        jspClient = "/client/index.jsp";
+                    } else {
+                        UtilisateurHardis uh = sessionMain.rechercheUtilisateurHardis(utilisateur.getId());
+                        sessionHttp.setAttribute(ATT_SESSION_HARDIS, uh);//Attribuer le Token
+                        jspClient = "/utilisateurHardis/index.jsp";
+                    }
+                } else {
+                    jspClient = "/login.jsp";
+                    request.setAttribute("msgError", "Utilisateur inexistant");
+                }
             }
-        }
 
-        /*Control Deconnexion*/
-        if (act.equals("deconnexion")) {
-            sessionHttp.setAttribute(ATT_SESSION_CLIENT, null); //Enlever le Token
-            sessionHttp.setAttribute(ATT_SESSION_HARDIS, null); //Enlever le Token
-            jspClient = "/login.jsp";
-        }
-        /*Fin Deconnexion*/
+            /*Control Deconnexion*/
+            if (act.equals("deconnexion")) {
+                sessionHttp.setAttribute(ATT_SESSION_CLIENT, null); //Enlever le Token
+                sessionHttp.setAttribute(ATT_SESSION_HARDIS, null); //Enlever le Token
+                jspClient = "/login.jsp";
+            }
+            /*Fin Deconnexion*/
 
-        
+        }
         RequestDispatcher rd = getServletContext().getRequestDispatcher(jspClient);
         rd.forward(request, response);
 
