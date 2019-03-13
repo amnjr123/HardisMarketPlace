@@ -35,5 +35,13 @@ public interface HistoriqueUtilisateurDevisFacadeLocal {
     HistoriqueUtilisateurDevis creerPremierHistoriqueUtilisateurDevis(Devis devis, UtilisateurHardis uh);
 
     HistoriqueUtilisateurDevis creerSuiteHistoriqueUtilisateurDevis(HistoriqueUtilisateurDevis ancienHistorique, UtilisateurHardis nouvelUtilisateur);
+
+    List<HistoriqueUtilisateurDevis> rechercheHistoriqueUtilisateurDevis(UtilisateurHardis uh);
+
+    List<HistoriqueUtilisateurDevis> rechercheHistoriqueUtilisateurDevis(Devis devis);
+
+    List<HistoriqueUtilisateurDevis> rechercheHistoriqueUtilisateurDevis();
+
+    HistoriqueUtilisateurDevis rechercheHistoriqueUtilisateurDevis(long id);
     
 }

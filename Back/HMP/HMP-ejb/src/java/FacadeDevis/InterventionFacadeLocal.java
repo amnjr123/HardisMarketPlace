@@ -5,7 +5,10 @@
  */
 package FacadeDevis;
 
+import GestionDevis.Devis;
 import GestionDevis.Intervention;
+import GestionUtilisateur.UtilisateurHardis;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +32,15 @@ public interface InterventionFacadeLocal {
     List<Intervention> findRange(int[] range);
 
     int count();
+
+    Intervention creerIntervention(UtilisateurHardis uh, Devis devis, Date dateIntervention);
+
+    Intervention modifierIntervention(Intervention i, UtilisateurHardis uh, Date dateIntervention);
+
+    Intervention supprimerIntervention(Intervention i);
+
+    Intervention rechercheIntervention(long id);
+
+    List<Intervention> rechercheIntervention();
     
 }

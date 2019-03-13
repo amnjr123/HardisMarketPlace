@@ -9,9 +9,11 @@ import GestionDevis.Devis;
 import GestionDevis.HistoriqueUtilisateurDevis;
 import GestionUtilisateur.UtilisateurHardis;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -45,6 +47,7 @@ public class HistoriqueUtilisateurDevisFacade extends AbstractFacade<HistoriqueU
     }
     
     //Méthode à utiliser lors du transfert de devis entre employés
+    @Override
     public HistoriqueUtilisateurDevis creerSuiteHistoriqueUtilisateurDevis(HistoriqueUtilisateurDevis ancienHistorique, UtilisateurHardis nouvelUtilisateur){
         //Création nouvel historique
         HistoriqueUtilisateurDevis nouvelHistorique = new HistoriqueUtilisateurDevis();
@@ -62,4 +65,27 @@ public class HistoriqueUtilisateurDevisFacade extends AbstractFacade<HistoriqueU
         return nouvelHistorique;
     }
     
+    @Override
+    public HistoriqueUtilisateurDevis rechercheHistoriqueUtilisateurDevis(long id){
+        return find(id);
+    }
+    
+    @Override
+    public List<HistoriqueUtilisateurDevis> rechercheHistoriqueUtilisateurDevis(){
+        return findAll();
+    }
+    
+    @Override
+    public List<HistoriqueUtilisateurDevis> rechercheHistoriqueUtilisateurDevis(UtilisateurHardis uh){
+        Query requete = em.createQuery("SELECT hud FROM HistoriqueUtilisateurDevis as hud where hud.utilisateurHardis=:uh");
+        requete.setParameter("uh",uh);
+        return requete.getResultList();
+    }
+    
+    @Override
+    public List<HistoriqueUtilisateurDevis> rechercheHistoriqueUtilisateurDevis(Devis devis){
+        Query requete = em.createQuery("SELECT hud FROM HistoriqueUtilisateurDevis as hud where hud.devis=:devis");
+        requete.setParameter("devis",devis);
+        return requete.getResultList();
+    }
 }

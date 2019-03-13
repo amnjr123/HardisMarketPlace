@@ -5,7 +5,10 @@
  */
 package FacadeDevis;
 
+import GestionDevis.DevisNonStandard;
 import GestionDevis.Proposition;
+import GestionUtilisateur.UtilisateurHardis;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +32,15 @@ public interface PropositionFacadeLocal {
     List<Proposition> findRange(int[] range);
 
     int count();
+
+    Proposition creerProposition(Date dateDebutValidite, Date dateFinValidite, String cheminDocument, UtilisateurHardis uh, DevisNonStandard devisNonStandard);
+
+    Proposition modifierProposition(Proposition p, Date dateDebutValidite, Date dateFinValidite, String cheminDocument, UtilisateurHardis uh);
+
+    Proposition supprimerProposition(Proposition p);
+
+    Proposition rechercheProposition(long id);
+
+    List<Proposition> rechercheProposition();
     
 }

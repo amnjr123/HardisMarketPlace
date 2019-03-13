@@ -64,6 +64,7 @@ public class DevisStandardFacade extends AbstractFacade<DevisStandard> implement
         return d;
     }
     
+    @Override
     public DevisStandard envoyerDevisStandard(DevisStandard d){
         d.setStatut(StatutDevis.Envoye);
         d.setDateEnvoi(new Date());
