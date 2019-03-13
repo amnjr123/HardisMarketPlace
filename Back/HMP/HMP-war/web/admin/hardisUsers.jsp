@@ -1,5 +1,3 @@
-
-
 <div class="card">
     <div class="card-header">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
@@ -126,16 +124,12 @@
                 <div class="input-group mb-3">
                     <select class="custom-select" id="inputGroupSelect01">
                         <option selected>Avtivité</option>
-                        <option value="1"><span data-feather="check" style="color :#34ce57"></span></option>
-                        <option value="2"><i data-feather="x" style="color :#bd2130"></i></option>
-                        <option value="3"><i data-feather="minus" style="color :#d39e00"></i></option>
+                        <option value="1">Actif</option>
+                        <option value="2">Inactif</option>
+                        <option value="3">?</option>
                     </select>
                 </div>
                 
-                <p>
-                    <label for='siret' class='sr-only'>Activite</label>
-                    <input type='text' id='Activite' class='form-control' placeholder='Activite' required autofocus>
-                </p>
                 <p>
                     <label for='siret' class='sr-only'>Plafond de déléguation</label>
                     <input type='text' id='Plafond de déléguation' class='form-control' placeholder='Plafond de déléguation' required autofocus>
@@ -154,7 +148,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Créer l'entreprise</button>
+                <button type="button" class="btn btn-primary">Créer l'utilisateur</button>
             </div>
         </div>
     </div>
