@@ -15,14 +15,14 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">Prénom *</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <input type="text" class="form-control" id="firstName" placeholder="Votre prénom" value="" required>
                 <div class="invalid-feedback">
                   Le prénom est obligatoire.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="lastName">Nom *</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <input type="text" class="form-control" id="lastName" placeholder="Votre nom" value="" required>
                 <div class="invalid-feedback">
                   Le nom est obligatoire.
                 </div>
@@ -42,9 +42,19 @@
             <div class="mb-3">
               <label for="inputPassword">Mot de passe *</label>
               <div class="input-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="mot de passe" required>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
                 <div class="invalid-feedback" style="width: 100%;">
                   Veuillez entrer un mot de passe.
+                </div>
+              </div>
+            </div>
+              
+            <div class="mb-3">
+              <label for="inputPassword">Téléphone *</label>
+              <div class="input-group">
+                <input type="number" id="telephone" class="form-control" placeholder="Numéro de téléphone" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Le numéro de téléphone est obligatoire.
                 </div>
               </div>
             </div>
@@ -58,7 +68,7 @@
             </div>
 
             <div class="mb-3">
-              <label for="address">Code chi7aja nsite 3liha *</label>
+              <label for="address">Code d'identification d'entreprise *</label>
               <input type="text" class="form-control" id="address" placeholder="Code de votre entreprise" required>
               <div class="invalid-feedback">
                 Le code Est obligatoire.

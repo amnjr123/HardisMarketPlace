@@ -32,7 +32,7 @@ public class Servlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession sessionHttp = request.getSession();
-        
+
         String act = request.getParameter("action");
         
            if (act.equals("connexion")) {
