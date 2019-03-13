@@ -7,3 +7,5 @@
 /Back/HMP/HMP-ejb/dist/
 /Back/HMP/HMP-war/build/
 /Back/HMP/HMP-war/dist/
+/Back/DB/derby.txt
+/Back/DB/derby.properties
