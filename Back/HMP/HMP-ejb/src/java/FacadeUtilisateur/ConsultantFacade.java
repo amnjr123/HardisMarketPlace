@@ -6,6 +6,7 @@
 package FacadeUtilisateur;
 
 import Enum.ProfilTechnique;
+import GestionCatalogue.Offre;
 import GestionUtilisateur.Agence;
 import GestionUtilisateur.Consultant;
 import java.util.Date;
@@ -34,7 +35,7 @@ public class ConsultantFacade extends AbstractFacade<Consultant> implements Cons
     }
     
     @Override
-    public Consultant creerConsultant(String nom, String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation, Agence agence){
+    public Consultant creerConsultant(String nom, String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation, Agence agence, List<Offre> offres){
         Consultant c = new Consultant();
         c.setNom(nom);
         c.setPrenom(prenom);
@@ -46,13 +47,14 @@ public class ConsultantFacade extends AbstractFacade<Consultant> implements Cons
         c.setPlafondDelegation(plafondDelegation);
         c.setDateCreationCompte(new Date());
         c.setAgence(agence);
+        c.setOffres(offres);
         create(c);  
         return c;
     }
     
     
     @Override //Méthode pour Administrateur
-    public Consultant modifierConsultant(Consultant c, String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation){
+    public Consultant modifierConsultant(Consultant c, String nom,String prenom,String mail,String tel,String mdp,ProfilTechnique profil,Boolean actifInactif,float plafondDelegation, List<Offre> offres){
         c.setNom(nom);
         c.setPrenom(prenom);
         c.setMail(mail);
@@ -61,6 +63,7 @@ public class ConsultantFacade extends AbstractFacade<Consultant> implements Cons
         c.setProfilTechnique(profil);
         c.setActifInactif(actifInactif);
         c.setPlafondDelegation(plafondDelegation);
+        c.setOffres(offres);
         edit(c);
         return c;
     }

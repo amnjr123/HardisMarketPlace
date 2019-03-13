@@ -6,6 +6,7 @@
 package FacadeCatalogue;
 
 import GestionCatalogue.Offre;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +30,15 @@ public interface OffreFacadeLocal {
     List<Offre> findRange(int[] range);
 
     int count();
+
+    Offre creerOffre(String libelle, Date dateDebutValidite, Date dateFinValidite);
+
+    Offre modifierOffre(Offre o, String libelle, Date dateDebutValidite, Date dateFinValidite);
+
+    Offre supprimerOffre(Offre o);
+
+    Offre rechercheOffre(long id);
+
+    List<Offre> rechercheOffre();
     
 }

@@ -3,46 +3,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GestionUtilisateur;
+package GestionDevis;
 
-import GestionDevis.Devis;
+import GestionUtilisateur.UtilisateurHardis;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author 5151882
  */
 @Entity
-public class Agence implements Serializable {
-//Clés étrangères
-    @OneToMany(mappedBy = "agence")
-    private List<UtilisateurHardis> utilisateurHardiss;
+public class Intervention implements Serializable {
+//Clés étrangères  
+    @ManyToOne
+    private UtilisateurHardis UtilisateurHardis;
 
-    public List<UtilisateurHardis> getUtilisateurHardiss() {
-        return utilisateurHardiss;
+    public UtilisateurHardis getUtilisateurHardis() {
+        return UtilisateurHardis;
     }
 
-    public void setUtilisateurHardiss(List<UtilisateurHardis> utilisateurHardiss) {
-        this.utilisateurHardiss = utilisateurHardiss;
-    }
-
-    @OneToMany(mappedBy = "agence")
-    private List<Devis> deviss;
-
-    public List<Devis> getDeviss() {
-        return deviss;
-    }
-
-    public void setDeviss(List<Devis> deviss) {
-        this.deviss = deviss;
+    public void setUtilisateurHardis(UtilisateurHardis UtilisateurHardis) {
+        this.UtilisateurHardis = UtilisateurHardis;
     }
     
+    @ManyToOne
+    private Devis devis;
+
+    public Devis getDevis() {
+        return devis;
+    }
+
+    public void setDevis(Devis devis) {
+        this.devis = devis;
+    }
+
 //Attributs
     private static final long serialVersionUID = 1L;
     @Id
@@ -57,14 +58,15 @@ public class Agence implements Serializable {
         this.id = id;
     }
 
-    private String Localisation;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateInterventionDemandee;
 
-    public String getLocalisation() {
-        return Localisation;
+    public Date getDateInterventionDemandee() {
+        return dateInterventionDemandee;
     }
 
-    public void setLocalisation(String Localisation) {
-        this.Localisation = Localisation;
+    public void setDateInterventionDemandee(Date dateInterventionDemandee) {
+        this.dateInterventionDemandee = dateInterventionDemandee;
     }
 
     @Override
@@ -77,10 +79,10 @@ public class Agence implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Agence)) {
+        if (!(object instanceof Intervention)) {
             return false;
         }
-        Agence other = (Agence) object;
+        Intervention other = (Intervention) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -89,7 +91,7 @@ public class Agence implements Serializable {
 
     @Override
     public String toString() {
-        return "Classes.Agence[ id=" + id + " ]";
+        return "GestionDevis.Intervention[ id=" + id + " ]";
     }
     
 }

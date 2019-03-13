@@ -1,8 +1,11 @@
 package GestionUtilisateur;
 
+import GestionDevis.Communication;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 
@@ -22,5 +25,15 @@ public class Client extends Utilisateur implements Serializable {
         this.entreprise = entreprise;
     }
     
+    @OneToMany(mappedBy = "client")
+    private List<Communication> communications;
+
+    public List<Communication> getCommunications() {
+        return communications;
+    }
+
+    public void setCommunications(List<Communication> communications) {
+        this.communications = communications;
+    }
     
 }

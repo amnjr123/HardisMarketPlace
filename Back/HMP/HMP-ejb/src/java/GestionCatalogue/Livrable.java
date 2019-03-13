@@ -3,47 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GestionUtilisateur;
+package GestionCatalogue;
 
-import GestionDevis.Devis;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author 5151882
  */
 @Entity
-public class Agence implements Serializable {
+public class Livrable implements Serializable {
 //Clés étrangères
-    @OneToMany(mappedBy = "agence")
-    private List<UtilisateurHardis> utilisateurHardiss;
+    @ManyToOne
+    private Service service;
 
-    public List<UtilisateurHardis> getUtilisateurHardiss() {
-        return utilisateurHardiss;
+    public Service getService() {
+        return service;
     }
 
-    public void setUtilisateurHardiss(List<UtilisateurHardis> utilisateurHardiss) {
-        this.utilisateurHardiss = utilisateurHardiss;
+    public void setService(Service service) {
+        this.service = service;
     }
 
-    @OneToMany(mappedBy = "agence")
-    private List<Devis> deviss;
-
-    public List<Devis> getDeviss() {
-        return deviss;
-    }
-
-    public void setDeviss(List<Devis> deviss) {
-        this.deviss = deviss;
-    }
-    
-//Attributs
+//Attributs   
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -57,14 +44,14 @@ public class Agence implements Serializable {
         this.id = id;
     }
 
-    private String Localisation;
+    private String libelle;
 
-    public String getLocalisation() {
-        return Localisation;
+    public String getLibelle() {
+        return libelle;
     }
 
-    public void setLocalisation(String Localisation) {
-        this.Localisation = Localisation;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 
     @Override
@@ -77,10 +64,10 @@ public class Agence implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Agence)) {
+        if (!(object instanceof Livrable)) {
             return false;
         }
-        Agence other = (Agence) object;
+        Livrable other = (Livrable) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -89,7 +76,7 @@ public class Agence implements Serializable {
 
     @Override
     public String toString() {
-        return "Classes.Agence[ id=" + id + " ]";
+        return "GestionCatalogue.Livrables[ id=" + id + " ]";
     }
     
 }
