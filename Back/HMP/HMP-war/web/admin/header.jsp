@@ -41,9 +41,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="hardisUsers.jsp">
+                <a class="nav-link" href="users.jsp">
                   <span data-feather="user"></span>
-                  Utilisateurs Hardis
+                  Utilisateurs
                 </a>
               </li>
               <li class="nav-item">

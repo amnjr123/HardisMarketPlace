@@ -16,6 +16,35 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="input-group mb-3">
+                            
+                                <label for="siret" class="sr-only">SIRET *</label>
+                                <input type="text" id="siret" class="form-control" placeholder="SIRET" required autofocus>
+                                <div class="input-group-prepend">
+                                    <a href="#" type="button" class="btn btn-primary"><i data-feather="search"></i></a>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="input-group mb-3">
+                            
+                                <label for="nom" class="sr-only">Nom *</label>
+                                <input type="text" id="nom" class="form-control" placeholder="Nom" required autofocus>
+                                <div class="input-group-prepend">
+                                    <a href="#" type="button" class="btn btn-primary"><i data-feather="search"></i></a>
+                                </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table">
@@ -83,8 +112,24 @@
                     </tbody>
                 </table>
             </div>
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Précédent</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Suivant</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -125,7 +170,9 @@
                 </div>
             </div>
         </div>
+
     </div>
+
 </main>
 
 
