@@ -45,5 +45,10 @@ public class SessionMain implements SessionLocal {
     public void test(){
         clientFacade.test();
     }
+
+    @Override
+    public Client creerClient(String nom, String prenom, String mail, String mdp, String telephone) {
+        return clientFacade.creerClient(nom, prenom, mail, mdp, mdp, null);
+    }    
         
 }
