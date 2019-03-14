@@ -34,13 +34,20 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-
         HttpSession sessionHttp = request.getSession();
         //sessionMain.test();
 
         if (request.getParameter("action") != null) {
             String act = request.getParameter("action");
 
+            if (act.equals("creerClient")) {
+                String prenom = request.getParameter("prenom").trim();
+                String nom = request.getParameter("nom").trim();
+                String mail = request.getParameter("email").trim();
+                String tel = request.getParameter("tel").trim();
+                String mdp = request.getParameter("pw");
+                
+            }
 
             if (act.equals("login")) {
                 String login = request.getParameter("email").trim();
@@ -68,7 +75,6 @@ public class Servlet extends HttpServlet {
             }
 
             /*Control Deconnexion*/
-
             if (act.equals("logout")) {
                 sessionHttp.setAttribute(ATT_SESSION_CLIENT, null); //Enlever le Token
                 sessionHttp.setAttribute(ATT_SESSION_HARDIS, null); //Enlever le Token
