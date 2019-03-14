@@ -1,5 +1,8 @@
-      <!--</div>
-    </div>!--> 
+      </div>
+    </div> 
+      </div>
+      </div>
+
 <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -79,6 +82,13 @@ $("#show-sidebar").click(function() {
    
 });
     </script>
+    
+      <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
           <!--script>
               $('#myTab a').on('click', function (e) {
   e.preventDefault()
